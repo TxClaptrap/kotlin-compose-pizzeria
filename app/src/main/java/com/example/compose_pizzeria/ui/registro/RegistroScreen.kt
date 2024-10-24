@@ -32,9 +32,9 @@ fun Registrtro(viewModel: RegistroViewModel) {
                 modifier = Modifier.padding(10.dp),
                 value = cliente.nombre,
                 onValueChange = { viewModel.onClienteChange(cliente.copy(nombre = it)) },
-                label = Text("Nombre"),
-                placeholder = Text("Juan"),
-                keyboardOptions = KeyboardOptions.Default
+                label = {Text("Nombre")},
+                placeholder = {Text("Juan")}
+                //keyboardOptions = KeyboardOptions.Default
             )
 
 
