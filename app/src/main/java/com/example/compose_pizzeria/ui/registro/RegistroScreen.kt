@@ -1,5 +1,6 @@
 package com.example.compose_pizzeria.ui.registro
 
+import RegistroViewModel
 import androidx.compose.foundation.Image
 import androidx.compose.runtime.Composable
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -8,7 +9,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
-
+import androidx.compose.material.icons.filled.Visibility
+import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -24,40 +26,129 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import com.example.compose_pizzeria.R
 import modelo.ClienteDTO
 
-
 @Composable
-fun Campo(teclado:KeyboardType.Text, label: String, onClienteChange:(String)->Unit, texto:(String)) {
-var ver by remember { mutableStateOf(Icons.Filled.) }
+fun Campo(
+    teclado: KeyboardType = KeyboardType.Text,
+    label: String,
+    onClienteChange: (String) -> Unit,
+    texto: String,
+    mensajeError: String?
+) {
+    var ojo by remember { mutableStateOf(Icons.Filled.VisibilityOff) }
+    var esconder by remember { mutableStateOf(true) } // Por defecto, la contraseña está oculta
 
+    OutlinedTextField(
+        keyboardOptions = KeyboardOptions(keyboardType = teclado),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(10.dp),
+        label = { Text(label) },
+        visualTransformation = if (teclado == KeyboardType.Password && esconder) {
+            PasswordVisualTransformation() // Asteriscos
+        } else {
+            VisualTransformation.None // No asteriscos
+        },
+        trailingIcon = {
+            if (teclado == KeyboardType.Password) {
+                IconButton(onClick = {
+                    // Cambia el estado de visibilidad y el ojo
+                    esconder = !esconder
+                    ojo = if (esconder) Icons.Filled.VisibilityOff else Icons.Filled.Visibility
+                }) {
+                    Icon(
+                        imageVector = ojo,
+                        contentDescription = ""
+                    )
+                }
+            }
+        },
+        onValueChange = onClienteChange,
+        value = texto
+    )
+    if (mensajeError != null) {
+        Text(
+            text = mensajeError,
+            color = Color.Red,
+            modifier = Modifier.padding(start = 10.dp)
+        )
+    }
 }
-
 
 @Composable
 fun Registro(viewModel: RegistroViewModel) {
     val cliente: ClienteDTO by viewModel.cliente.observeAsState(ClienteDTO())
+    val registroActivo: Boolean by viewModel.registroActivo.observeAsState(false)
+    val errorNombre: String? by viewModel.errorNombre.observeAsState(null)
+    val errorEmail: String? by viewModel.errorEmail.observeAsState(null)
+    val errorPassword: String? by viewModel.errorPassword.observeAsState(null)
 
     LazyColumn(
-        modifier = Modifier.fillMaxSize().padding(20.dp)
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(start = 20.dp, end = 20.dp)
     ) {
         item {
             Image(
                 painter = painterResource(R.drawable.dripping),
-                contentDescription = ""
-
+                contentDescription = "",
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 10.dp)
+                    .size(350.dp)
             )
-            OutlinedTextField(
-                modifier = Modifier.padding(20.dp).,
-                value = cliente.nombre,
-                onValueChange = { viewModel.onClienteChange(cliente.copy(nombre = it)) },
-                label = {Text("Nombre")},
-                placeholder = {Text("Juan")}
-                //keyboardOptions = KeyboardOptions.Default
+        }
+        item {
+            Campo(
+                KeyboardType.Text,
+                "Nombre",
+                { viewModel.onClienteChange(cliente.copy(nombre = it)) },
+                cliente.nombre,
+                errorNombre
             )
-
-
+            Campo(
+                KeyboardType.Text,
+                "DNI",
+                { viewModel.onClienteChange(cliente.copy(dni = it)) },
+                cliente.dni,
+                null
+            )
+            Campo(
+                KeyboardType.Text,
+                "Dirección",
+                { viewModel.onClienteChange(cliente.copy(direccion = it)) },
+                cliente.direccion,
+                null
+            )
+            Campo(
+                KeyboardType.Phone,
+                "Número de teléfono",
+                { viewModel.onClienteChange(cliente.copy(telefono = it)) },
+                cliente.telefono,
+                null
+            )
+            Campo(
+                KeyboardType.Email,
+                "E-mail",
+                { viewModel.onClienteChange(cliente.copy(email = it)) },
+                cliente.email,
+                errorEmail
+            )
+            Campo(
+                KeyboardType.Password,
+                "Contraseña",
+                { viewModel.onClienteChange(cliente.copy(password = it)) },
+                cliente.password,
+                errorPassword
+            )
+            Button(onClick = { viewModel.registrarCliente() }, modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 40.dp, bottom = 40.dp), enabled = registroActivo) { Text("Registar")}
         }
     }
 }
