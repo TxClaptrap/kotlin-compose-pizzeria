@@ -1,6 +1,9 @@
+import android.text.TextUtils
 import android.util.Log
+import android.util.Patterns
 import androidx.lifecycle.MutableLiveData
 import modelo.ClienteDTO
+
 
 class RegistroViewModel {
     val cliente = MutableLiveData(ClienteDTO())
@@ -8,6 +11,19 @@ class RegistroViewModel {
     val errorNombre = MutableLiveData<String?>(null)
     val errorEmail = MutableLiveData<String?>(null)
     val errorPassword = MutableLiveData<String?>(null)
+
+
+    /*fun isValidEmail(target: CharSequence?): Boolean {
+        return if (TextUtils.isEmpty(target)) {
+            false
+        } else {
+            Patterns.EMAIL_ADDRESS.matcher(target).matches()
+        }
+    }*/
+
+    private fun isValidEmail(target: CharSequence?): Boolean {
+        return !TextUtils.isEmpty(target) && target?.let { Patterns.EMAIL_ADDRESS.matcher(it).matches() } == true
+    }
 
     fun onClienteChange(newCliente: ClienteDTO) {
 
@@ -81,12 +97,12 @@ class RegistroViewModel {
 
         // Validación mail
         errorEmail.value =
-            if (!newCliente.email.matches(Regex("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$"))) {
+            if (!isValidEmail(newCliente.email)) {
                 "El correo electrónico no es válido."
             } else null
 
         // Validación nombre
-        errorNombre.value = if (newCliente.nombre.any { it.isDigit() }) {
+        errorNombre.value = if (newCliente.nombre.any { it.isDigit() } ) {
             "El nombre no puede contener dígitos."
         } else null
 

@@ -2,6 +2,8 @@ package com.example.compose_pizzeria.ui.registro
 
 import RegistroViewModel
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.runtime.Composable
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -14,6 +16,7 @@ import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.getValue
@@ -48,7 +51,7 @@ fun Campo(
         modifier = Modifier
             .fillMaxWidth()
             .padding(10.dp),
-        label = { Text(label) },
+        label = { Text(label, color = Color.Gray) },
         visualTransformation = if (teclado == KeyboardType.Password && esconder) {
             PasswordVisualTransformation() // Asteriscos
         } else {
@@ -74,7 +77,7 @@ fun Campo(
     if (mensajeError != null) {
         Text(
             text = mensajeError,
-            color = Color.Red,
+            color = MaterialTheme.colorScheme.error,
             modifier = Modifier.padding(start = 10.dp)
         )
     }
@@ -91,6 +94,7 @@ fun Registro(viewModel: RegistroViewModel) {
     LazyColumn(
         modifier = Modifier
             .fillMaxWidth()
+            .background(MaterialTheme.colorScheme.tertiaryContainer)
             .padding(start = 20.dp, end = 20.dp)
     ) {
         item {
@@ -146,7 +150,7 @@ fun Registro(viewModel: RegistroViewModel) {
                 cliente.password,
                 errorPassword
             )
-            Button(onClick = { viewModel.registrarCliente() }, modifier = Modifier
+            Button(onClick = { viewModel.registrarCliente()}, modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 40.dp, bottom = 40.dp), enabled = registroActivo) { Text("Registar")}
         }
