@@ -4,6 +4,7 @@ import RegistroViewModel
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -33,6 +34,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import com.example.compose_pizzeria.R
+import com.example.compose_pizzeria.data.ErrorMensaje
 import modelo.ClienteDTO
 
 @Composable
@@ -48,7 +50,7 @@ fun Campo(
     OutlinedTextField(
         keyboardOptions = KeyboardOptions(keyboardType = teclado),
         modifier = Modifier
-            .fillMaxWidth()
+            .fillMaxSize()
             .padding(10.dp),
         label = { Text(label, color = Color.Gray) },
         visualTransformation = if (teclado == KeyboardType.Password && esconder) {
@@ -85,9 +87,7 @@ fun Campo(
 fun Registro(viewModel: RegistroViewModel) {
     val cliente: ClienteDTO by viewModel.cliente.observeAsState(ClienteDTO())
     val registroActivo: Boolean by viewModel.registroActivo.observeAsState(false)
-    val errorNombre: String? by viewModel.errorNombre.observeAsState(null)
-    val errorEmail: String? by viewModel.errorEmail.observeAsState(null)
-    val errorPassword: String? by viewModel.errorPassword.observeAsState(null)
+    val errorMensaje: ErrorMensaje? by viewModel.errorMensaje.observeAsState(null)
 
     LazyColumn(
         modifier = Modifier
@@ -111,7 +111,7 @@ fun Registro(viewModel: RegistroViewModel) {
                 "Nombre",
                 { viewModel.onClienteChange(cliente.copy(nombre = it)) },
                 cliente.nombre,
-                errorNombre
+                errorMensaje?.nombre
             )
             Campo(
                 KeyboardType.Text,
@@ -139,14 +139,14 @@ fun Registro(viewModel: RegistroViewModel) {
                 "E-mail",
                 { viewModel.onClienteChange(cliente.copy(email = it)) },
                 cliente.email,
-                errorEmail
+                errorMensaje?.email
             )
             Campo(
                 KeyboardType.Password,
                 "Contraseña",
                 { viewModel.onClienteChange(cliente.copy(password = it)) },
                 cliente.password,
-                errorPassword
+                errorMensaje?.password
             )
             Button(
                 onClick = { viewModel.registrarCliente() }, modifier = Modifier

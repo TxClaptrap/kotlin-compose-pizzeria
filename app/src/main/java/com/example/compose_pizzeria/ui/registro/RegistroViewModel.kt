@@ -2,15 +2,14 @@ import android.text.TextUtils
 import android.util.Log
 import android.util.Patterns
 import androidx.lifecycle.MutableLiveData
+import com.example.compose_pizzeria.data.ErrorMensaje
 import modelo.ClienteDTO
 
 
 class RegistroViewModel {
     val cliente = MutableLiveData(ClienteDTO())
     val registroActivo = MutableLiveData(false)
-    val errorNombre = MutableLiveData<String?>(null)
-    val errorEmail = MutableLiveData<String?>(null)
-    val errorPassword = MutableLiveData<String?>(null)
+    val errorMensaje = MutableLiveData<ErrorMensaje?>(null)
 
 
     /*fun isValidEmail(target: CharSequence?): Boolean {
@@ -22,7 +21,9 @@ class RegistroViewModel {
     }*/
 
     private fun isValidEmail(target: CharSequence?): Boolean {
-        return !TextUtils.isEmpty(target) && target?.let { Patterns.EMAIL_ADDRESS.matcher(it).matches() } == true
+        return !TextUtils.isEmpty(target) && target?.let {
+            Patterns.EMAIL_ADDRESS.matcher(it).matches()
+        } == true
     }
 
     fun onClienteChange(newCliente: ClienteDTO) {
@@ -87,28 +88,21 @@ class RegistroViewModel {
 
         registroActivo.value = !hayErrores
         */
+        //Recuerda el .value en MutableLiveData
 
         //Lo que pide:
-
-        // Validación pass
-        errorPassword.value = if (newCliente.password.length < 4) { //Recuerda el .value en MutableLiveData
-            "La contraseña debe tener 4 caracteres como mínimo."
-        } else null
-
-        // Validación mail
-        errorEmail.value =
-            if (!isValidEmail(newCliente.email)) {
-                "El correo electrónico no es válido."
+        //Validaciones
+        errorMensaje.value = ErrorMensaje(
+            password = if (newCliente.password.length < 4 && newCliente.password.isNotEmpty()) { "La contraseña debe tener 4 caracteres como mínimo."
+            } else null,
+            nombre = if (newCliente.nombre.any { it.isDigit() } && newCliente.nombre.isNotEmpty()) { "El nombre no puede contener dígitos."
+            } else null,
+            email = if (!isValidEmail(newCliente.email) && newCliente.email.isNotEmpty()) { "El correo electrónico no es válido."
             } else null
-
-        // Validación nombre
-        errorNombre.value = if (newCliente.nombre.any { it.isDigit() } ) {
-            "El nombre no puede contener dígitos."
-        } else null
+        )
 
         // Hay errores antes de habilitar el registro?
         registroActivo.value =
-            listOf(errorNombre.value, errorEmail.value, errorPassword.value).all { it == null } &&
                     listOf(
                         newCliente.nombre,
                         newCliente.dni,
