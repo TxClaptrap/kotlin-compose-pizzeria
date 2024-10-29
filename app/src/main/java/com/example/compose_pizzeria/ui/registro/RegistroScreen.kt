@@ -43,7 +43,6 @@ fun Campo(
     texto: String,
     mensajeError: String?
 ) {
-    var ojo by remember { mutableStateOf(Icons.Filled.VisibilityOff) }
     var esconder by remember { mutableStateOf(true) } // Por defecto, la contraseña está oculta
 
     OutlinedTextField(
@@ -62,10 +61,9 @@ fun Campo(
                 IconButton(onClick = {
                     // Cambia el estado de visibilidad y el ojo
                     esconder = !esconder
-                    ojo = if (esconder) Icons.Filled.VisibilityOff else Icons.Filled.Visibility
                 }) {
                     Icon(
-                        imageVector = ojo,
+                        imageVector = if (esconder) Icons.Filled.VisibilityOff else Icons.Filled.Visibility,
                         contentDescription = ""
                     )
                 }
@@ -150,9 +148,11 @@ fun Registro(viewModel: RegistroViewModel) {
                 cliente.password,
                 errorPassword
             )
-            Button(onClick = { viewModel.registrarCliente()}, modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 40.dp, bottom = 40.dp), enabled = registroActivo) { Text("Registar")}
+            Button(
+                onClick = { viewModel.registrarCliente() }, modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 40.dp, bottom = 40.dp), enabled = registroActivo
+            ) { Text("Registar") }
         }
     }
 }
