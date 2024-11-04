@@ -61,7 +61,7 @@ fun Login(viewModel: LoginViewModel) {
                 null
             )
             Button(
-                onClick = { viewModel.logearCliente() }, modifier = Modifier
+                onClick = { viewModel.onLogearClick() }, modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = 40.dp, bottom = 40.dp), enabled = loginActivo
             ) { Text("Iniciar Sesión") }

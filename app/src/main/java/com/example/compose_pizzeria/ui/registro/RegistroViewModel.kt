@@ -115,15 +115,15 @@ class RegistroViewModel {
         this.cliente.value = newCliente
     }
 
-    fun registrarCliente() {
+    fun onRegistrarClick() {
 
         /*val clienteDTO = cliente.value
         if (clienteDTO != null) {
             Log.d("RegistroViewModel", "ClienteDTO: $clienteDTO")
         }*/
 
-        cliente.value?.let { clienteDTO ->
-            Log.d("RegistroViewModel", "ClienteDTO: $clienteDTO")
+        cliente.value?.let { cliente ->
+            Log.d("Registro", "Cliente: $cliente")
         }
     }
 

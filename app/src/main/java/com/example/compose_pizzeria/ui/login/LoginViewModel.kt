@@ -3,7 +3,6 @@ package com.example.compose_pizzeria.ui.login
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.compose_pizzeria.data.ClienteLoginDTO
-import modelo.ClienteDTO
 
 class LoginViewModel {
     val loginCliente = MutableLiveData<ClienteLoginDTO>()
@@ -21,10 +20,9 @@ class LoginViewModel {
                 ).none { it.isBlank() }
             }
     }
-
-    fun logearCliente() {
-        loginCliente.value?.let { clienteDTO ->
-            Log.d("RegistroViewModel", "ClienteDTO: $clienteDTO")
+    fun onLogearClick() {
+        loginCliente.value?.let { cliente ->
+            Log.d("Login", "Cliente: $cliente")
         }
     }
-    }
+}
