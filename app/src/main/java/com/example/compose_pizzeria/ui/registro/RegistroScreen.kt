@@ -3,7 +3,6 @@ package com.example.compose_pizzeria.ui.registro
 import RegistroViewModel
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.foundation.layout.fillMaxWidth

@@ -21,7 +21,6 @@ import androidx.compose.ui.unit.dp
 import com.example.compose_pizzeria.R
 import com.example.compose_pizzeria.data.ClienteLoginDTO
 import com.example.compose_pizzeria.ui.registro.Campo
-import modelo.ClienteDTO
 
 @Composable
 fun Login(viewModel: LoginViewModel) {
