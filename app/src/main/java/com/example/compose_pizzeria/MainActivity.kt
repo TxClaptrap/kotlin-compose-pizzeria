@@ -17,8 +17,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             DrippingPizzaTheme {
-                Registro(viewModel = RegistroViewModel())
-                //Login(viewModel = LoginViewModel())
+                //Registro(viewModel = RegistroViewModel())
+                Login(viewModel = LoginViewModel())
 
             }
 

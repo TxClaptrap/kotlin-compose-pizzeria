@@ -1,5 +1,5 @@
 package modelo
 
-enum class Estado {
+enum class ESTADO {
     FINALIZADO, CANCELADO, ENTREGADO, PENDIENTE
 }

@@ -1,8 +1,8 @@
 package modelo
 
 data class BebidaDTO (
-    var id:Int,
-    var nombre:String,
-    var precio: Double,
-    var size:SIZE
+    val id:Int,
+    val nombre:String,
+    val precio: Double,
+    val size:SIZE
 )
