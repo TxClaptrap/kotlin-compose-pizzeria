@@ -5,6 +5,7 @@ import com.example.compose_pizzeria.R
 import com.example.compose_pizzeria.data.ProductoDTO
 import com.example.compose_pizzeria.data.TIPO_PRODUCTO
 import modelo.IngredienteDTO
+import modelo.SIZE
 
 class HomeViewModel {
     //private val lista: List<ProductoDTO> = listOf()
@@ -52,7 +53,7 @@ class HomeViewModel {
 
         // Ingredientes para pastas
         val ingredientesCarbonaraPasta = listOf(nata, bacon, queso)
-        val ingredientesBolognesePasta = listOf(IngredienteDTO(19, "Salsa de tomate", emptyList()), carnePicada, queso)
+        val ingredientesBolognesePasta = listOf(IngredienteDTO(1, "Salsa de tomate", emptyList()), carnePicada, queso)
         val ingredientes4QuesosPasta = listOf(
             IngredienteDTO(15, "Queso mozzarella", emptyList()),
             IngredienteDTO(16, "Queso gorgonzola", emptyList()),
@@ -68,33 +69,36 @@ class HomeViewModel {
         // Lista de productos
         listProductos = listOf(
             // Pizzas
-            ProductoDTO(TIPO_PRODUCTO.PIZZA, 1, "Carbonara", 10.0,  ingredientesCarbonaraPizza),
-            ProductoDTO(2, "4 quesos", 9.5, TIPO_PRODUCTO.PIZZA, ingredientes4QuesosPizza),
-            ProductoDTO(3, "Más Pepe", 8.5, TIPO_PRODUCTO.PIZZA, ingredientesMasPepe),
-            ProductoDTO(4, "Vegetariana", 8.0, TIPO_PRODUCTO.PIZZA, ingredientesVegetariana),
-            ProductoDTO(5, "Mixta", 9.0, TIPO_PRODUCTO.PIZZA, ingredientesMixta),
-            ProductoDTO(6, "Cabra", 10.5, TIPO_PRODUCTO.PIZZA, ingredientesCabra),
-            ProductoDTO(7, "BBQ", 11.0, TIPO_PRODUCTO.PIZZA, ingredientesBBQ),
-            ProductoDTO(8, "Psicópata", 8.5, TIPO_PRODUCTO.PIZZA, ingredientesPsicopata),
+            ProductoDTO(TIPO_PRODUCTO.PIZZA, 1, "Carbonara", 10.0, SIZE.GRANDE, ingredientesCarbonaraPizza),
+            ProductoDTO(TIPO_PRODUCTO.PIZZA,2, "4 quesos", 9.5, SIZE.GRANDE, ingredientes4QuesosPizza),
+            ProductoDTO(TIPO_PRODUCTO.PIZZA,3, "Pepe", 8.5, SIZE.GRANDE, ingredientesMasPepe),
+            ProductoDTO(TIPO_PRODUCTO.PIZZA,4, "Vegetariana", 8.0, SIZE.GRANDE, ingredientesVegetariana),
+            ProductoDTO(TIPO_PRODUCTO.PIZZA,5, "Mixta", 9.0, SIZE.GRANDE, ingredientesMixta),
+            ProductoDTO(TIPO_PRODUCTO.PIZZA,6, "Cabra", 10.5, SIZE.GRANDE, ingredientesCabra),
+            ProductoDTO(TIPO_PRODUCTO.PIZZA,7, "BBQ", 11.0, SIZE.GRANDE, ingredientesBBQ),
+            ProductoDTO(TIPO_PRODUCTO.PIZZA,8, "Aberrante", 8.5, SIZE.GRANDE, ingredientesPsicopata),
 
             // Bebidas
-            ProductoDTO(9, "Agua", 1.5, TIPO_PRODUCTO.BEBIDA, emptyList()),
-            ProductoDTO(10, "Coca Cola", 2.0, TIPO_PRODUCTO.BEBIDA, emptyList()),
-            ProductoDTO(11, "Coca Cola Zero", 2.0, TIPO_PRODUCTO.BEBIDA, emptyList()),
-            ProductoDTO(12, "Nestea", 2.0, TIPO_PRODUCTO.BEBIDA, emptyList()),
+            ProductoDTO(TIPO_PRODUCTO.BEBIDA,9, "Agua", 1.5, SIZE.MEDIANO, emptyList()),
+            ProductoDTO(TIPO_PRODUCTO.BEBIDA,10, "Coca Cola", 2.0, SIZE.MEDIANO, emptyList()),
+            ProductoDTO(TIPO_PRODUCTO.BEBIDA,11, "Coca Cola Zero", 2.0, SIZE.MEDIANO, emptyList()),
+            ProductoDTO(TIPO_PRODUCTO.BEBIDA,12, "Nestea", 2.0, SIZE.MEDIANO, emptyList()),
 
             // Pastas
-            ProductoDTO(13, "Carbonara", 8.0, TIPO_PRODUCTO.PASTA, ingredientesCarbonaraPasta),
-            ProductoDTO(14, "Bolognese", 7.5, TIPO_PRODUCTO.PASTA, ingredientesBolognesePasta),
-            ProductoDTO(15, "4 Quesos", 9.0, TIPO_PRODUCTO.PASTA, ingredientes4QuesosPasta),
-            ProductoDTO(16, "Picante", 8.5, TIPO_PRODUCTO.PASTA, ingredientesPicantePasta)
+            ProductoDTO(TIPO_PRODUCTO.PASTA,13, "Carbonara", 8.0, null, ingredientesCarbonaraPasta),
+            ProductoDTO(TIPO_PRODUCTO.PASTA,14, "Bolognese", 7.5, null, ingredientesBolognesePasta),
+            ProductoDTO(TIPO_PRODUCTO.PASTA,15, "4 Quesos", 9.0, null, ingredientes4QuesosPasta),
+            ProductoDTO(TIPO_PRODUCTO.PASTA,16, "Picante", 8.5, null, ingredientesPicantePasta)
         )
     }
 
 
     fun obtenerImagen(nombre: String) = when(nombre) {
         "4 quesos" -> R.drawable.quesos4
-        "bbq" -> R.drawable.bbq
+        "BBQ" -> R.drawable.bbq
+        "Aberrante" -> R.drawable.aberrante
+        "Pepe" -> R.drawable.pepe
+
         else -> R.drawable.dripping // Si no encuentra el producto
     }
 
