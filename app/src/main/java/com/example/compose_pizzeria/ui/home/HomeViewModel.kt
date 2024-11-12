@@ -85,19 +85,30 @@ class HomeViewModel {
             ProductoDTO(TIPO_PRODUCTO.BEBIDA,12, "Nestea", 2.0, SIZE.MEDIANO, emptyList()),
 
             // Pastas
-            ProductoDTO(TIPO_PRODUCTO.PASTA,13, "Carbonara", 8.0, null, ingredientesCarbonaraPasta),
-            ProductoDTO(TIPO_PRODUCTO.PASTA,14, "Bolognese", 7.5, null, ingredientesBolognesePasta),
-            ProductoDTO(TIPO_PRODUCTO.PASTA,15, "4 Quesos", 9.0, null, ingredientes4QuesosPasta),
+            ProductoDTO(TIPO_PRODUCTO.PASTA,13, "Spaghetti Carbonara", 8.0, null, ingredientesCarbonaraPasta),
+            ProductoDTO(TIPO_PRODUCTO.PASTA,14, "Spaghetti Bolognese", 7.5, null, ingredientesBolognesePasta),
+            ProductoDTO(TIPO_PRODUCTO.PASTA,15, "Penne 4 Formaggi", 9.0, null, ingredientes4QuesosPasta),
             ProductoDTO(TIPO_PRODUCTO.PASTA,16, "Picante", 8.5, null, ingredientesPicantePasta)
         )
     }
 
 
     fun obtenerImagen(nombre: String) = when(nombre) {
+        "Carbonara" -> R.drawable.carbonara
         "4 quesos" -> R.drawable.quesos4
+        "Pepe" -> R.drawable.pepe
+        "Vegetariana" -> R.drawable.vegetariana
+        "Mixta" -> R.drawable.mixta
+        "Cabra" -> R.drawable.cabra
         "BBQ" -> R.drawable.bbq
         "Aberrante" -> R.drawable.aberrante
-        "Pepe" -> R.drawable.pepe
+
+        "Spaghetti Bolognese" -> R.drawable.bolognese
+        "Spaghetti Carbonara" -> R.drawable.carbonarapasta
+        "4 quesos" -> R.drawable.pasta4quesos
+        //""
+
+        //"Agua" -> R.drawable.agua
 
         else -> R.drawable.dripping // Si no encuentra el producto
     }

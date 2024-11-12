@@ -62,6 +62,7 @@ dependencies {
     implementation (libs.androidx.material.icons.extended)
     implementation(libs.androidx.material.v171)
     implementation(libs.androidx.ui.text.google.fonts)
+    implementation(libs.androidx.foundation.layout.android)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

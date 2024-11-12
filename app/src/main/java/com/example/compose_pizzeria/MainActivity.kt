@@ -8,6 +8,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.compose.DrippingPizzaTheme
+import com.example.compose_pizzeria.ui.home.Home
+import com.example.compose_pizzeria.ui.home.HomeViewModel
 import com.example.compose_pizzeria.ui.login.Login
 import com.example.compose_pizzeria.ui.login.LoginViewModel
 import com.example.compose_pizzeria.ui.registro.Registro
@@ -18,7 +20,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             DrippingPizzaTheme {
                 //Registro(viewModel = RegistroViewModel())
-                Login(viewModel = LoginViewModel())
+                //Login(viewModel = LoginViewModel())
+                Home(HomeViewModel())
 
             }
 
@@ -28,6 +31,6 @@ class MainActivity : ComponentActivity() {
 
 @Preview(showBackground = true)
 @Composable
-fun RegistroPreview() {
-    Registro(viewModel = RegistroViewModel())
+fun HomePreview() {
+    Home(viewModel = HomeViewModel())
 }
