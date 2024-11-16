@@ -14,7 +14,7 @@ import com.example.compose_pizzeria.ui.login.Login
 import com.example.compose_pizzeria.ui.login.LoginViewModel
 import com.example.compose_pizzeria.ui.registro.Registro
 
-class MainActivity : ComponentActivity() {
+class Pizzeria : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {

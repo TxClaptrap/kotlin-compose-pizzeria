@@ -6,16 +6,17 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/drippingicon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/drippingicon"
         android:supportsRtl="true"
         android:theme="@style/Theme.ComposePizzeria"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".Pizzeria"
+            android:screenOrientation="portrait"
             android:exported="true"
-            android:label="@string/app_name"
+            android:label="Dripping"
             android:theme="@style/Theme.ComposePizzeria">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

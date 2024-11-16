@@ -262,10 +262,7 @@ fun DrippingPizzaTheme(
     dynamicColor: Boolean = true,
     content: @Composable() () -> Unit
 ) {
-  val colorScheme = when {
-      darkTheme -> darkScheme
-      else -> lightScheme
-  }
+  val colorScheme = lightScheme
 
   MaterialTheme(
     colorScheme = colorScheme,
