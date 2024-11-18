@@ -9,203 +9,203 @@
 9        android:targetSdkVersion="34" />
 10
 11    <uses-permission android:name="android.permission.REORDER_TASKS" />
-11-->[androidx.test:core:1.6.1] C:\Users\Ruben\.gradle\caches\transforms-4\0079db875631923a65e6644f2c7e8d33\transformed\core-1.6.1\AndroidManifest.xml:24:5-72
-11-->[androidx.test:core:1.6.1] C:\Users\Ruben\.gradle\caches\transforms-4\0079db875631923a65e6644f2c7e8d33\transformed\core-1.6.1\AndroidManifest.xml:24:22-69
+11-->[androidx.test:core:1.6.1] C:\Users\Zi0n\.gradle\caches\transforms-4\0079db875631923a65e6644f2c7e8d33\transformed\core-1.6.1\AndroidManifest.xml:24:5-72
+11-->[androidx.test:core:1.6.1] C:\Users\Zi0n\.gradle\caches\transforms-4\0079db875631923a65e6644f2c7e8d33\transformed\core-1.6.1\AndroidManifest.xml:24:22-69
 12
 13    <permission
-13-->[androidx.core:core:1.13.1] C:\Users\Ruben\.gradle\caches\transforms-4\134dc19794fb6ccb32bf0dda8a5ca48f\transformed\core-1.13.1\AndroidManifest.xml:22:5-24:47
+13-->[androidx.core:core:1.13.1] C:\Users\Zi0n\.gradle\caches\transforms-4\134dc19794fb6ccb32bf0dda8a5ca48f\transformed\core-1.13.1\AndroidManifest.xml:22:5-24:47
 14        android:name="com.example.compose_pizzeria.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-14-->[androidx.core:core:1.13.1] C:\Users\Ruben\.gradle\caches\transforms-4\134dc19794fb6ccb32bf0dda8a5ca48f\transformed\core-1.13.1\AndroidManifest.xml:23:9-81
+14-->[androidx.core:core:1.13.1] C:\Users\Zi0n\.gradle\caches\transforms-4\134dc19794fb6ccb32bf0dda8a5ca48f\transformed\core-1.13.1\AndroidManifest.xml:23:9-81
 15        android:protectionLevel="signature" />
-15-->[androidx.core:core:1.13.1] C:\Users\Ruben\.gradle\caches\transforms-4\134dc19794fb6ccb32bf0dda8a5ca48f\transformed\core-1.13.1\AndroidManifest.xml:24:9-44
+15-->[androidx.core:core:1.13.1] C:\Users\Zi0n\.gradle\caches\transforms-4\134dc19794fb6ccb32bf0dda8a5ca48f\transformed\core-1.13.1\AndroidManifest.xml:24:9-44
 16
 17    <uses-permission android:name="com.example.compose_pizzeria.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-17-->[androidx.core:core:1.13.1] C:\Users\Ruben\.gradle\caches\transforms-4\134dc19794fb6ccb32bf0dda8a5ca48f\transformed\core-1.13.1\AndroidManifest.xml:26:5-97
-17-->[androidx.core:core:1.13.1] C:\Users\Ruben\.gradle\caches\transforms-4\134dc19794fb6ccb32bf0dda8a5ca48f\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
+17-->[androidx.core:core:1.13.1] C:\Users\Zi0n\.gradle\caches\transforms-4\134dc19794fb6ccb32bf0dda8a5ca48f\transformed\core-1.13.1\AndroidManifest.xml:26:5-97
+17-->[androidx.core:core:1.13.1] C:\Users\Zi0n\.gradle\caches\transforms-4\134dc19794fb6ccb32bf0dda8a5ca48f\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
 18
 19    <queries>
-19-->[androidx.test:runner:1.6.1] C:\Users\Ruben\.gradle\caches\transforms-4\644085f8754d5b26aaf5d1068816a64a\transformed\runner-1.6.1\AndroidManifest.xml:24:5-28:15
+19-->[androidx.test:runner:1.6.1] C:\Users\Zi0n\.gradle\caches\transforms-4\644085f8754d5b26aaf5d1068816a64a\transformed\runner-1.6.1\AndroidManifest.xml:24:5-28:15
 20        <package android:name="androidx.test.orchestrator" />
-20-->[androidx.test:runner:1.6.1] C:\Users\Ruben\.gradle\caches\transforms-4\644085f8754d5b26aaf5d1068816a64a\transformed\runner-1.6.1\AndroidManifest.xml:25:9-62
-20-->[androidx.test:runner:1.6.1] C:\Users\Ruben\.gradle\caches\transforms-4\644085f8754d5b26aaf5d1068816a64a\transformed\runner-1.6.1\AndroidManifest.xml:25:18-59
+20-->[androidx.test:runner:1.6.1] C:\Users\Zi0n\.gradle\caches\transforms-4\644085f8754d5b26aaf5d1068816a64a\transformed\runner-1.6.1\AndroidManifest.xml:25:9-62
+20-->[androidx.test:runner:1.6.1] C:\Users\Zi0n\.gradle\caches\transforms-4\644085f8754d5b26aaf5d1068816a64a\transformed\runner-1.6.1\AndroidManifest.xml:25:18-59
 21        <package android:name="androidx.test.services" />
-21-->[androidx.test:runner:1.6.1] C:\Users\Ruben\.gradle\caches\transforms-4\644085f8754d5b26aaf5d1068816a64a\transformed\runner-1.6.1\AndroidManifest.xml:26:9-58
-21-->[androidx.test:runner:1.6.1] C:\Users\Ruben\.gradle\caches\transforms-4\644085f8754d5b26aaf5d1068816a64a\transformed\runner-1.6.1\AndroidManifest.xml:26:18-55
+21-->[androidx.test:runner:1.6.1] C:\Users\Zi0n\.gradle\caches\transforms-4\644085f8754d5b26aaf5d1068816a64a\transformed\runner-1.6.1\AndroidManifest.xml:26:9-58
+21-->[androidx.test:runner:1.6.1] C:\Users\Zi0n\.gradle\caches\transforms-4\644085f8754d5b26aaf5d1068816a64a\transformed\runner-1.6.1\AndroidManifest.xml:26:18-55
 22        <package android:name="com.google.android.apps.common.testing.services" />
-22-->[androidx.test:runner:1.6.1] C:\Users\Ruben\.gradle\caches\transforms-4\644085f8754d5b26aaf5d1068816a64a\transformed\runner-1.6.1\AndroidManifest.xml:27:9-83
-22-->[androidx.test:runner:1.6.1] C:\Users\Ruben\.gradle\caches\transforms-4\644085f8754d5b26aaf5d1068816a64a\transformed\runner-1.6.1\AndroidManifest.xml:27:18-80
+22-->[androidx.test:runner:1.6.1] C:\Users\Zi0n\.gradle\caches\transforms-4\644085f8754d5b26aaf5d1068816a64a\transformed\runner-1.6.1\AndroidManifest.xml:27:9-83
+22-->[androidx.test:runner:1.6.1] C:\Users\Zi0n\.gradle\caches\transforms-4\644085f8754d5b26aaf5d1068816a64a\transformed\runner-1.6.1\AndroidManifest.xml:27:18-80
 23    </queries>
 24
 25    <application
-25-->C:\Users\Ruben\Desktop\MEGA\git\PMDM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:5:5-27:19
+25-->E:\Zi0n\Escritorio\git\PM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:5:5-27:19
 26        android:allowBackup="true"
-26-->C:\Users\Ruben\Desktop\MEGA\git\PMDM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:6:9-35
+26-->E:\Zi0n\Escritorio\git\PM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:6:9-35
 27        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-27-->[androidx.core:core:1.13.1] C:\Users\Ruben\.gradle\caches\transforms-4\134dc19794fb6ccb32bf0dda8a5ca48f\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
+27-->[androidx.core:core:1.13.1] C:\Users\Zi0n\.gradle\caches\transforms-4\134dc19794fb6ccb32bf0dda8a5ca48f\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
 28        android:dataExtractionRules="@xml/data_extraction_rules"
-28-->C:\Users\Ruben\Desktop\MEGA\git\PMDM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:7:9-65
+28-->E:\Zi0n\Escritorio\git\PM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:7:9-65
 29        android:debuggable="true"
 30        android:extractNativeLibs="false"
 31        android:fullBackupContent="@xml/backup_rules"
-31-->C:\Users\Ruben\Desktop\MEGA\git\PMDM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:8:9-54
+31-->E:\Zi0n\Escritorio\git\PM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:8:9-54
 32        android:icon="@drawable/drippingicon"
-32-->C:\Users\Ruben\Desktop\MEGA\git\PMDM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:9:9-46
+32-->E:\Zi0n\Escritorio\git\PM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:9:9-46
 33        android:label="@string/app_name"
-33-->C:\Users\Ruben\Desktop\MEGA\git\PMDM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:10:9-41
+33-->E:\Zi0n\Escritorio\git\PM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:10:9-41
 34        android:roundIcon="@drawable/drippingicon"
-34-->C:\Users\Ruben\Desktop\MEGA\git\PMDM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:11:9-51
+34-->E:\Zi0n\Escritorio\git\PM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:11:9-51
 35        android:supportsRtl="true"
-35-->C:\Users\Ruben\Desktop\MEGA\git\PMDM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:12:9-35
+35-->E:\Zi0n\Escritorio\git\PM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:12:9-35
 36        android:testOnly="true"
 37        android:theme="@style/Theme.ComposePizzeria" >
-37-->C:\Users\Ruben\Desktop\MEGA\git\PMDM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:13:9-53
+37-->E:\Zi0n\Escritorio\git\PM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:13:9-53
 38        <activity
-38-->C:\Users\Ruben\Desktop\MEGA\git\PMDM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:15:9-26:20
+38-->E:\Zi0n\Escritorio\git\PM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:15:9-26:20
 39            android:name="com.example.compose_pizzeria.Pizzeria"
-39-->C:\Users\Ruben\Desktop\MEGA\git\PMDM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:16:13-37
+39-->E:\Zi0n\Escritorio\git\PM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:16:13-37
 40            android:exported="true"
-40-->C:\Users\Ruben\Desktop\MEGA\git\PMDM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:18:13-36
+40-->E:\Zi0n\Escritorio\git\PM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:18:13-36
 41            android:label="Dripping"
-41-->C:\Users\Ruben\Desktop\MEGA\git\PMDM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:19:13-37
+41-->E:\Zi0n\Escritorio\git\PM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:19:13-37
 42            android:screenOrientation="portrait"
-42-->C:\Users\Ruben\Desktop\MEGA\git\PMDM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:17:13-49
+42-->E:\Zi0n\Escritorio\git\PM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:17:13-49
 43            android:theme="@style/Theme.ComposePizzeria" >
-43-->C:\Users\Ruben\Desktop\MEGA\git\PMDM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:20:13-57
+43-->E:\Zi0n\Escritorio\git\PM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:20:13-57
 44            <intent-filter>
-44-->C:\Users\Ruben\Desktop\MEGA\git\PMDM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:21:13-25:29
+44-->E:\Zi0n\Escritorio\git\PM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:21:13-25:29
 45                <action android:name="android.intent.action.MAIN" />
-45-->C:\Users\Ruben\Desktop\MEGA\git\PMDM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:22:17-69
-45-->C:\Users\Ruben\Desktop\MEGA\git\PMDM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:22:25-66
+45-->E:\Zi0n\Escritorio\git\PM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:22:17-69
+45-->E:\Zi0n\Escritorio\git\PM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:22:25-66
 46
 47                <category android:name="android.intent.category.LAUNCHER" />
-47-->C:\Users\Ruben\Desktop\MEGA\git\PMDM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:24:17-77
-47-->C:\Users\Ruben\Desktop\MEGA\git\PMDM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:24:27-74
+47-->E:\Zi0n\Escritorio\git\PM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:24:17-77
+47-->E:\Zi0n\Escritorio\git\PM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:24:27-74
 48            </intent-filter>
 49        </activity>
 50        <activity
-50-->[androidx.compose.ui:ui-tooling-android:1.7.4] C:\Users\Ruben\.gradle\caches\transforms-4\254d313d137f6cd4536ef191a48f5520\transformed\ui-tooling-release\AndroidManifest.xml:23:9-25:39
+50-->[androidx.compose.ui:ui-tooling-android:1.7.4] C:\Users\Zi0n\.gradle\caches\transforms-4\254d313d137f6cd4536ef191a48f5520\transformed\ui-tooling-release\AndroidManifest.xml:23:9-25:39
 51            android:name="androidx.compose.ui.tooling.PreviewActivity"
-51-->[androidx.compose.ui:ui-tooling-android:1.7.4] C:\Users\Ruben\.gradle\caches\transforms-4\254d313d137f6cd4536ef191a48f5520\transformed\ui-tooling-release\AndroidManifest.xml:24:13-71
+51-->[androidx.compose.ui:ui-tooling-android:1.7.4] C:\Users\Zi0n\.gradle\caches\transforms-4\254d313d137f6cd4536ef191a48f5520\transformed\ui-tooling-release\AndroidManifest.xml:24:13-71
 52            android:exported="true" />
-52-->[androidx.compose.ui:ui-tooling-android:1.7.4] C:\Users\Ruben\.gradle\caches\transforms-4\254d313d137f6cd4536ef191a48f5520\transformed\ui-tooling-release\AndroidManifest.xml:25:13-36
+52-->[androidx.compose.ui:ui-tooling-android:1.7.4] C:\Users\Zi0n\.gradle\caches\transforms-4\254d313d137f6cd4536ef191a48f5520\transformed\ui-tooling-release\AndroidManifest.xml:25:13-36
 53        <activity
-53-->[androidx.compose.ui:ui-test-manifest:1.7.4] C:\Users\Ruben\.gradle\caches\transforms-4\da7d534c76fea42ebb76a271ba715ba3\transformed\ui-test-manifest-1.7.4\AndroidManifest.xml:23:9-25:39
+53-->[androidx.compose.ui:ui-test-manifest:1.7.4] C:\Users\Zi0n\.gradle\caches\transforms-4\da7d534c76fea42ebb76a271ba715ba3\transformed\ui-test-manifest-1.7.4\AndroidManifest.xml:23:9-25:39
 54            android:name="androidx.activity.ComponentActivity"
-54-->[androidx.compose.ui:ui-test-manifest:1.7.4] C:\Users\Ruben\.gradle\caches\transforms-4\da7d534c76fea42ebb76a271ba715ba3\transformed\ui-test-manifest-1.7.4\AndroidManifest.xml:24:13-63
+54-->[androidx.compose.ui:ui-test-manifest:1.7.4] C:\Users\Zi0n\.gradle\caches\transforms-4\da7d534c76fea42ebb76a271ba715ba3\transformed\ui-test-manifest-1.7.4\AndroidManifest.xml:24:13-63
 55            android:exported="true" />
-55-->[androidx.compose.ui:ui-test-manifest:1.7.4] C:\Users\Ruben\.gradle\caches\transforms-4\da7d534c76fea42ebb76a271ba715ba3\transformed\ui-test-manifest-1.7.4\AndroidManifest.xml:25:13-36
+55-->[androidx.compose.ui:ui-test-manifest:1.7.4] C:\Users\Zi0n\.gradle\caches\transforms-4\da7d534c76fea42ebb76a271ba715ba3\transformed\ui-test-manifest-1.7.4\AndroidManifest.xml:25:13-36
 56        <activity
-56-->[androidx.test:core:1.6.1] C:\Users\Ruben\.gradle\caches\transforms-4\0079db875631923a65e6644f2c7e8d33\transformed\core-1.6.1\AndroidManifest.xml:27:9-34:20
+56-->[androidx.test:core:1.6.1] C:\Users\Zi0n\.gradle\caches\transforms-4\0079db875631923a65e6644f2c7e8d33\transformed\core-1.6.1\AndroidManifest.xml:27:9-34:20
 57            android:name="androidx.test.core.app.InstrumentationActivityInvoker$BootstrapActivity"
-57-->[androidx.test:core:1.6.1] C:\Users\Ruben\.gradle\caches\transforms-4\0079db875631923a65e6644f2c7e8d33\transformed\core-1.6.1\AndroidManifest.xml:28:13-99
+57-->[androidx.test:core:1.6.1] C:\Users\Zi0n\.gradle\caches\transforms-4\0079db875631923a65e6644f2c7e8d33\transformed\core-1.6.1\AndroidManifest.xml:28:13-99
 58            android:exported="true"
-58-->[androidx.test:core:1.6.1] C:\Users\Ruben\.gradle\caches\transforms-4\0079db875631923a65e6644f2c7e8d33\transformed\core-1.6.1\AndroidManifest.xml:29:13-36
+58-->[androidx.test:core:1.6.1] C:\Users\Zi0n\.gradle\caches\transforms-4\0079db875631923a65e6644f2c7e8d33\transformed\core-1.6.1\AndroidManifest.xml:29:13-36
 59            android:theme="@style/WhiteBackgroundTheme" >
-59-->[androidx.test:core:1.6.1] C:\Users\Ruben\.gradle\caches\transforms-4\0079db875631923a65e6644f2c7e8d33\transformed\core-1.6.1\AndroidManifest.xml:30:13-56
+59-->[androidx.test:core:1.6.1] C:\Users\Zi0n\.gradle\caches\transforms-4\0079db875631923a65e6644f2c7e8d33\transformed\core-1.6.1\AndroidManifest.xml:30:13-56
 60            <intent-filter android:priority="-100" >
-60-->[androidx.test:core:1.6.1] C:\Users\Ruben\.gradle\caches\transforms-4\0079db875631923a65e6644f2c7e8d33\transformed\core-1.6.1\AndroidManifest.xml:31:13-33:29
-60-->[androidx.test:core:1.6.1] C:\Users\Ruben\.gradle\caches\transforms-4\0079db875631923a65e6644f2c7e8d33\transformed\core-1.6.1\AndroidManifest.xml:31:28-51
+60-->[androidx.test:core:1.6.1] C:\Users\Zi0n\.gradle\caches\transforms-4\0079db875631923a65e6644f2c7e8d33\transformed\core-1.6.1\AndroidManifest.xml:31:13-33:29
+60-->[androidx.test:core:1.6.1] C:\Users\Zi0n\.gradle\caches\transforms-4\0079db875631923a65e6644f2c7e8d33\transformed\core-1.6.1\AndroidManifest.xml:31:28-51
 61                <category android:name="android.intent.category.LAUNCHER" />
-61-->C:\Users\Ruben\Desktop\MEGA\git\PMDM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:24:17-77
-61-->C:\Users\Ruben\Desktop\MEGA\git\PMDM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:24:27-74
+61-->E:\Zi0n\Escritorio\git\PM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:24:17-77
+61-->E:\Zi0n\Escritorio\git\PM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:24:27-74
 62            </intent-filter>
 63        </activity>
 64        <activity
-64-->[androidx.test:core:1.6.1] C:\Users\Ruben\.gradle\caches\transforms-4\0079db875631923a65e6644f2c7e8d33\transformed\core-1.6.1\AndroidManifest.xml:35:9-42:20
+64-->[androidx.test:core:1.6.1] C:\Users\Zi0n\.gradle\caches\transforms-4\0079db875631923a65e6644f2c7e8d33\transformed\core-1.6.1\AndroidManifest.xml:35:9-42:20
 65            android:name="androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity"
-65-->[androidx.test:core:1.6.1] C:\Users\Ruben\.gradle\caches\transforms-4\0079db875631923a65e6644f2c7e8d33\transformed\core-1.6.1\AndroidManifest.xml:36:13-95
+65-->[androidx.test:core:1.6.1] C:\Users\Zi0n\.gradle\caches\transforms-4\0079db875631923a65e6644f2c7e8d33\transformed\core-1.6.1\AndroidManifest.xml:36:13-95
 66            android:exported="true"
-66-->[androidx.test:core:1.6.1] C:\Users\Ruben\.gradle\caches\transforms-4\0079db875631923a65e6644f2c7e8d33\transformed\core-1.6.1\AndroidManifest.xml:37:13-36
+66-->[androidx.test:core:1.6.1] C:\Users\Zi0n\.gradle\caches\transforms-4\0079db875631923a65e6644f2c7e8d33\transformed\core-1.6.1\AndroidManifest.xml:37:13-36
 67            android:theme="@style/WhiteBackgroundTheme" >
-67-->[androidx.test:core:1.6.1] C:\Users\Ruben\.gradle\caches\transforms-4\0079db875631923a65e6644f2c7e8d33\transformed\core-1.6.1\AndroidManifest.xml:38:13-56
+67-->[androidx.test:core:1.6.1] C:\Users\Zi0n\.gradle\caches\transforms-4\0079db875631923a65e6644f2c7e8d33\transformed\core-1.6.1\AndroidManifest.xml:38:13-56
 68            <intent-filter android:priority="-100" >
-68-->[androidx.test:core:1.6.1] C:\Users\Ruben\.gradle\caches\transforms-4\0079db875631923a65e6644f2c7e8d33\transformed\core-1.6.1\AndroidManifest.xml:31:13-33:29
-68-->[androidx.test:core:1.6.1] C:\Users\Ruben\.gradle\caches\transforms-4\0079db875631923a65e6644f2c7e8d33\transformed\core-1.6.1\AndroidManifest.xml:31:28-51
+68-->[androidx.test:core:1.6.1] C:\Users\Zi0n\.gradle\caches\transforms-4\0079db875631923a65e6644f2c7e8d33\transformed\core-1.6.1\AndroidManifest.xml:31:13-33:29
+68-->[androidx.test:core:1.6.1] C:\Users\Zi0n\.gradle\caches\transforms-4\0079db875631923a65e6644f2c7e8d33\transformed\core-1.6.1\AndroidManifest.xml:31:28-51
 69                <category android:name="android.intent.category.LAUNCHER" />
-69-->C:\Users\Ruben\Desktop\MEGA\git\PMDM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:24:17-77
-69-->C:\Users\Ruben\Desktop\MEGA\git\PMDM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:24:27-74
+69-->E:\Zi0n\Escritorio\git\PM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:24:17-77
+69-->E:\Zi0n\Escritorio\git\PM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:24:27-74
 70            </intent-filter>
 71        </activity>
 72        <activity
-72-->[androidx.test:core:1.6.1] C:\Users\Ruben\.gradle\caches\transforms-4\0079db875631923a65e6644f2c7e8d33\transformed\core-1.6.1\AndroidManifest.xml:43:9-50:20
+72-->[androidx.test:core:1.6.1] C:\Users\Zi0n\.gradle\caches\transforms-4\0079db875631923a65e6644f2c7e8d33\transformed\core-1.6.1\AndroidManifest.xml:43:9-50:20
 73            android:name="androidx.test.core.app.InstrumentationActivityInvoker$EmptyFloatingActivity"
-73-->[androidx.test:core:1.6.1] C:\Users\Ruben\.gradle\caches\transforms-4\0079db875631923a65e6644f2c7e8d33\transformed\core-1.6.1\AndroidManifest.xml:44:13-103
+73-->[androidx.test:core:1.6.1] C:\Users\Zi0n\.gradle\caches\transforms-4\0079db875631923a65e6644f2c7e8d33\transformed\core-1.6.1\AndroidManifest.xml:44:13-103
 74            android:exported="true"
-74-->[androidx.test:core:1.6.1] C:\Users\Ruben\.gradle\caches\transforms-4\0079db875631923a65e6644f2c7e8d33\transformed\core-1.6.1\AndroidManifest.xml:45:13-36
+74-->[androidx.test:core:1.6.1] C:\Users\Zi0n\.gradle\caches\transforms-4\0079db875631923a65e6644f2c7e8d33\transformed\core-1.6.1\AndroidManifest.xml:45:13-36
 75            android:theme="@style/WhiteBackgroundDialogTheme" >
-75-->[androidx.test:core:1.6.1] C:\Users\Ruben\.gradle\caches\transforms-4\0079db875631923a65e6644f2c7e8d33\transformed\core-1.6.1\AndroidManifest.xml:46:13-62
+75-->[androidx.test:core:1.6.1] C:\Users\Zi0n\.gradle\caches\transforms-4\0079db875631923a65e6644f2c7e8d33\transformed\core-1.6.1\AndroidManifest.xml:46:13-62
 76            <intent-filter android:priority="-100" >
-76-->[androidx.test:core:1.6.1] C:\Users\Ruben\.gradle\caches\transforms-4\0079db875631923a65e6644f2c7e8d33\transformed\core-1.6.1\AndroidManifest.xml:31:13-33:29
-76-->[androidx.test:core:1.6.1] C:\Users\Ruben\.gradle\caches\transforms-4\0079db875631923a65e6644f2c7e8d33\transformed\core-1.6.1\AndroidManifest.xml:31:28-51
+76-->[androidx.test:core:1.6.1] C:\Users\Zi0n\.gradle\caches\transforms-4\0079db875631923a65e6644f2c7e8d33\transformed\core-1.6.1\AndroidManifest.xml:31:13-33:29
+76-->[androidx.test:core:1.6.1] C:\Users\Zi0n\.gradle\caches\transforms-4\0079db875631923a65e6644f2c7e8d33\transformed\core-1.6.1\AndroidManifest.xml:31:28-51
 77                <category android:name="android.intent.category.LAUNCHER" />
-77-->C:\Users\Ruben\Desktop\MEGA\git\PMDM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:24:17-77
-77-->C:\Users\Ruben\Desktop\MEGA\git\PMDM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:24:27-74
+77-->E:\Zi0n\Escritorio\git\PM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:24:17-77
+77-->E:\Zi0n\Escritorio\git\PM\kotlin-compose-pizzeria\app\src\main\AndroidManifest.xml:24:27-74
 78            </intent-filter>
 79        </activity>
 80
 81        <provider
-81-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Ruben\.gradle\caches\transforms-4\71011e82207d7f4bf5092534e6519d90\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+81-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Zi0n\.gradle\caches\transforms-4\71011e82207d7f4bf5092534e6519d90\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
 82            android:name="androidx.startup.InitializationProvider"
-82-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Ruben\.gradle\caches\transforms-4\71011e82207d7f4bf5092534e6519d90\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
+82-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Zi0n\.gradle\caches\transforms-4\71011e82207d7f4bf5092534e6519d90\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
 83            android:authorities="com.example.compose_pizzeria.androidx-startup"
-83-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Ruben\.gradle\caches\transforms-4\71011e82207d7f4bf5092534e6519d90\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
+83-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Zi0n\.gradle\caches\transforms-4\71011e82207d7f4bf5092534e6519d90\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
 84            android:exported="false" >
-84-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Ruben\.gradle\caches\transforms-4\71011e82207d7f4bf5092534e6519d90\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
+84-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Zi0n\.gradle\caches\transforms-4\71011e82207d7f4bf5092534e6519d90\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
 85            <meta-data
-85-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Ruben\.gradle\caches\transforms-4\71011e82207d7f4bf5092534e6519d90\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+85-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Zi0n\.gradle\caches\transforms-4\71011e82207d7f4bf5092534e6519d90\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
 86                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-86-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Ruben\.gradle\caches\transforms-4\71011e82207d7f4bf5092534e6519d90\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
+86-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Zi0n\.gradle\caches\transforms-4\71011e82207d7f4bf5092534e6519d90\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
 87                android:value="androidx.startup" />
-87-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Ruben\.gradle\caches\transforms-4\71011e82207d7f4bf5092534e6519d90\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
+87-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Zi0n\.gradle\caches\transforms-4\71011e82207d7f4bf5092534e6519d90\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
 88            <meta-data
-88-->[androidx.lifecycle:lifecycle-process:2.8.6] C:\Users\Ruben\.gradle\caches\transforms-4\0ef4636eeee20ff8e8e2eb02a1e37936\transformed\lifecycle-process-2.8.6\AndroidManifest.xml:29:13-31:52
+88-->[androidx.lifecycle:lifecycle-process:2.8.6] C:\Users\Zi0n\.gradle\caches\transforms-4\0ef4636eeee20ff8e8e2eb02a1e37936\transformed\lifecycle-process-2.8.6\AndroidManifest.xml:29:13-31:52
 89                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-89-->[androidx.lifecycle:lifecycle-process:2.8.6] C:\Users\Ruben\.gradle\caches\transforms-4\0ef4636eeee20ff8e8e2eb02a1e37936\transformed\lifecycle-process-2.8.6\AndroidManifest.xml:30:17-78
+89-->[androidx.lifecycle:lifecycle-process:2.8.6] C:\Users\Zi0n\.gradle\caches\transforms-4\0ef4636eeee20ff8e8e2eb02a1e37936\transformed\lifecycle-process-2.8.6\AndroidManifest.xml:30:17-78
 90                android:value="androidx.startup" />
-90-->[androidx.lifecycle:lifecycle-process:2.8.6] C:\Users\Ruben\.gradle\caches\transforms-4\0ef4636eeee20ff8e8e2eb02a1e37936\transformed\lifecycle-process-2.8.6\AndroidManifest.xml:31:17-49
+90-->[androidx.lifecycle:lifecycle-process:2.8.6] C:\Users\Zi0n\.gradle\caches\transforms-4\0ef4636eeee20ff8e8e2eb02a1e37936\transformed\lifecycle-process-2.8.6\AndroidManifest.xml:31:17-49
 91            <meta-data
-91-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Ruben\.gradle\caches\transforms-4\d2ca10a065c995abceef3a70241d683d\transformed\profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
+91-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Zi0n\.gradle\caches\transforms-4\d2ca10a065c995abceef3a70241d683d\transformed\profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
 92                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-92-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Ruben\.gradle\caches\transforms-4\d2ca10a065c995abceef3a70241d683d\transformed\profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
+92-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Zi0n\.gradle\caches\transforms-4\d2ca10a065c995abceef3a70241d683d\transformed\profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
 93                android:value="androidx.startup" />
-93-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Ruben\.gradle\caches\transforms-4\d2ca10a065c995abceef3a70241d683d\transformed\profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
+93-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Zi0n\.gradle\caches\transforms-4\d2ca10a065c995abceef3a70241d683d\transformed\profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
 94        </provider>
 95
 96        <receiver
-96-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Ruben\.gradle\caches\transforms-4\d2ca10a065c995abceef3a70241d683d\transformed\profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
+96-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Zi0n\.gradle\caches\transforms-4\d2ca10a065c995abceef3a70241d683d\transformed\profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
 97            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-97-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Ruben\.gradle\caches\transforms-4\d2ca10a065c995abceef3a70241d683d\transformed\profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
+97-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Zi0n\.gradle\caches\transforms-4\d2ca10a065c995abceef3a70241d683d\transformed\profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
 98            android:directBootAware="false"
-98-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Ruben\.gradle\caches\transforms-4\d2ca10a065c995abceef3a70241d683d\transformed\profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
+98-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Zi0n\.gradle\caches\transforms-4\d2ca10a065c995abceef3a70241d683d\transformed\profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
 99            android:enabled="true"
-99-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Ruben\.gradle\caches\transforms-4\d2ca10a065c995abceef3a70241d683d\transformed\profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
+99-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Zi0n\.gradle\caches\transforms-4\d2ca10a065c995abceef3a70241d683d\transformed\profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
 100            android:exported="true"
-100-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Ruben\.gradle\caches\transforms-4\d2ca10a065c995abceef3a70241d683d\transformed\profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
+100-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Zi0n\.gradle\caches\transforms-4\d2ca10a065c995abceef3a70241d683d\transformed\profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
 101            android:permission="android.permission.DUMP" >
-101-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Ruben\.gradle\caches\transforms-4\d2ca10a065c995abceef3a70241d683d\transformed\profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
+101-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Zi0n\.gradle\caches\transforms-4\d2ca10a065c995abceef3a70241d683d\transformed\profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
 102            <intent-filter>
-102-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Ruben\.gradle\caches\transforms-4\d2ca10a065c995abceef3a70241d683d\transformed\profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
+102-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Zi0n\.gradle\caches\transforms-4\d2ca10a065c995abceef3a70241d683d\transformed\profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
 103                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-103-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Ruben\.gradle\caches\transforms-4\d2ca10a065c995abceef3a70241d683d\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
-103-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Ruben\.gradle\caches\transforms-4\d2ca10a065c995abceef3a70241d683d\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
+103-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Zi0n\.gradle\caches\transforms-4\d2ca10a065c995abceef3a70241d683d\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+103-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Zi0n\.gradle\caches\transforms-4\d2ca10a065c995abceef3a70241d683d\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
 104            </intent-filter>
 105            <intent-filter>
-105-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Ruben\.gradle\caches\transforms-4\d2ca10a065c995abceef3a70241d683d\transformed\profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
+105-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Zi0n\.gradle\caches\transforms-4\d2ca10a065c995abceef3a70241d683d\transformed\profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
 106                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-106-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Ruben\.gradle\caches\transforms-4\d2ca10a065c995abceef3a70241d683d\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
-106-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Ruben\.gradle\caches\transforms-4\d2ca10a065c995abceef3a70241d683d\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
+106-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Zi0n\.gradle\caches\transforms-4\d2ca10a065c995abceef3a70241d683d\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+106-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Zi0n\.gradle\caches\transforms-4\d2ca10a065c995abceef3a70241d683d\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
 107            </intent-filter>
 108            <intent-filter>
-108-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Ruben\.gradle\caches\transforms-4\d2ca10a065c995abceef3a70241d683d\transformed\profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
+108-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Zi0n\.gradle\caches\transforms-4\d2ca10a065c995abceef3a70241d683d\transformed\profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
 109                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-109-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Ruben\.gradle\caches\transforms-4\d2ca10a065c995abceef3a70241d683d\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
-109-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Ruben\.gradle\caches\transforms-4\d2ca10a065c995abceef3a70241d683d\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
+109-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Zi0n\.gradle\caches\transforms-4\d2ca10a065c995abceef3a70241d683d\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
+109-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Zi0n\.gradle\caches\transforms-4\d2ca10a065c995abceef3a70241d683d\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
 110            </intent-filter>
 111            <intent-filter>
-111-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Ruben\.gradle\caches\transforms-4\d2ca10a065c995abceef3a70241d683d\transformed\profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
+111-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Zi0n\.gradle\caches\transforms-4\d2ca10a065c995abceef3a70241d683d\transformed\profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
 112                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-112-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Ruben\.gradle\caches\transforms-4\d2ca10a065c995abceef3a70241d683d\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
-112-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Ruben\.gradle\caches\transforms-4\d2ca10a065c995abceef3a70241d683d\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
+112-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Zi0n\.gradle\caches\transforms-4\d2ca10a065c995abceef3a70241d683d\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
+112-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Zi0n\.gradle\caches\transforms-4\d2ca10a065c995abceef3a70241d683d\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
 113            </intent-filter>
 114        </receiver>
 115    </application>

@@ -1,5 +1,5 @@
 package modelo
 
 enum class SIZE {
-    PEQUENO, MEDIANO, GRANDE
+    PEQUENA, MEDIANA, GRANDE
 }

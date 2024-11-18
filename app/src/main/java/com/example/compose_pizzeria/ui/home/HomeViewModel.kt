@@ -1,10 +1,13 @@
 package com.example.compose_pizzeria.ui.home
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.compose_pizzeria.R
 import com.example.compose_pizzeria.data.ProductoDTO
 import com.example.compose_pizzeria.data.TIPO_PRODUCTO
 import modelo.IngredienteDTO
+import modelo.LineaPedidoDTO
+import modelo.PedidoDTO
 import modelo.SIZE
 
 class HomeViewModel {
@@ -13,6 +16,8 @@ class HomeViewModel {
     //O si te gusta más así...:
     val productos: MutableLiveData<List<ProductoDTO>> = MutableLiveData(listOf())
     var listProductos: List<ProductoDTO> = emptyList()
+    val pedido: MutableLiveData<PedidoDTO> = MutableLiveData(PedidoDTO())
+    val numeroProductos: MutableLiveData<Int> = MutableLiveData(0)
 
     init {
         cargarProductos()
@@ -79,10 +84,10 @@ class HomeViewModel {
             ProductoDTO(TIPO_PRODUCTO.PASTA,16, "Farfalle Birichine", 8.5, null, ingredientesPicantePasta),
 
                     // Bebidas
-            ProductoDTO(TIPO_PRODUCTO.BEBIDA,9, "Agua", 1.5, SIZE.MEDIANO, emptyList()),
-            ProductoDTO(TIPO_PRODUCTO.BEBIDA,10, "Coca Cola", 2.0, SIZE.MEDIANO, emptyList()),
-            ProductoDTO(TIPO_PRODUCTO.BEBIDA,11, "Coca Cola Zero", 2.0, SIZE.MEDIANO, emptyList()),
-            ProductoDTO(TIPO_PRODUCTO.BEBIDA,12, "Fuze Tea", 2.0, SIZE.MEDIANO, emptyList())
+            ProductoDTO(TIPO_PRODUCTO.BEBIDA,9, "Agua", 1.5, SIZE.MEDIANA, emptyList()),
+            ProductoDTO(TIPO_PRODUCTO.BEBIDA,10, "Coca Cola", 2.0, SIZE.MEDIANA, emptyList()),
+            ProductoDTO(TIPO_PRODUCTO.BEBIDA,11, "Coca Cola Zero", 2.0, SIZE.MEDIANA, emptyList()),
+            ProductoDTO(TIPO_PRODUCTO.BEBIDA,12, "Fuze Tea", 2.0, SIZE.MEDIANA, emptyList())
         )
     }
 
@@ -111,4 +116,10 @@ class HomeViewModel {
         else -> R.drawable.dripping // Si no encuentra el producto
     }
 
+    fun onAddToBasket(productoDTO: ProductoDTO, size: SIZE?, cantidad: Int) {
+        val lineaPedido = LineaPedidoDTO(cantidad = cantidad, size = size, productoDTO = productoDTO)
+        Log.d("HomeViewModel", lineaPedido.toString())
+        numeroProductos.value = numeroProductos.value?.plus(cantidad)
+        //numeroProductos.value = pedido.value?.lineaPedidos?.sumOf { it.cantidad }
+    }
 }

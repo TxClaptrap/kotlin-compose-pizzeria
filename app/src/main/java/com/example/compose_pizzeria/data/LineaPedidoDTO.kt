@@ -1,10 +1,15 @@
 package modelo
 
+import com.example.compose_pizzeria.data.ProductoDTO
+import java.util.Locale
+
 data class LineaPedidoDTO (
-    val id:Int,
+    val id:Int = 0,
+    val size: SIZE? = null,
     var cantidad:Int,
-    val pedido: PedidoDTO,
-    var pizza: PizzaDTO?,
-    var pasta: PastaDTO?,
-    var bebida: BebidaDTO?
-)
+    val productoDTO: ProductoDTO
+) {
+    override fun toString(): String {
+        return String.format(Locale.getDefault(), "%d %s %s", cantidad, productoDTO, size)
+    }
+}
