@@ -17,6 +17,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.DropdownMenu
 import androidx.compose.material.Icon
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AddShoppingCart
@@ -24,6 +25,7 @@ import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedCard
@@ -36,12 +38,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
@@ -51,6 +55,8 @@ import androidx.compose.ui.unit.sp
 import com.example.compose_pizzeria.R
 import com.example.compose_pizzeria.data.ProductoDTO
 import com.example.compose_pizzeria.data.TIPO_PRODUCTO
+import modelo.SIZE
+import java.util.Locale
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -68,7 +74,13 @@ fun Home(viewModel: HomeViewModel) {
                     ) // Sombra aquí
             ) {
                 TopAppBar(
-                    title = { Text(text = "THE  DRIPPING  PIZZA", fontSize = 20.sp ,color = Color(252, 148, 20)) },
+                    title = {
+                        Text(
+                            text = "THE  DRIPPING  PIZZA",
+                            fontSize = 20.sp,
+                            color = Color(252, 148, 20)
+                        )
+                    },
                     actions = {
                         BadgedBox(
                             badge = {
@@ -195,6 +207,10 @@ fun Home(viewModel: HomeViewModel) {
 
 @Composable
 fun ProductoItem(productoDTO: ProductoDTO, foto: Int) {
+    var desplegado by rememberSaveable { mutableStateOf(false) }
+    var seleccionar by rememberSaveable { mutableStateOf("Tamaño") }
+
+
     OutlinedCard(
         modifier = Modifier
             .fillMaxWidth()
@@ -205,35 +221,42 @@ fun ProductoItem(productoDTO: ProductoDTO, foto: Int) {
         ),
     ) {
         Row {
-            Image(
-                painter = painterResource(foto),
-                contentDescription = productoDTO.nombre,
-                modifier = Modifier.sizeIn(maxWidth = 200.dp, maxHeight = 200.dp)
-            )
+            Box(
+                contentAlignment = Alignment.BottomEnd
+            ) {
+                Image(
+                    painter = painterResource(foto),
+                    contentDescription = productoDTO.nombre,
+                    modifier = Modifier.sizeIn(maxWidth = 200.dp, maxHeight = 200.dp)
+                )
+                Text(String.format(Locale.getDefault(), "%.2f€", productoDTO.precio))
+            }
+
             Spacer(modifier = Modifier.width(10.dp))
             Column(
                 modifier = Modifier
                     .size(width = 170.dp, height = 160.dp)
                     .padding(0.dp, 20.dp, 20.dp, 0.dp)
             ) {
-                if (productoDTO.tipo==TIPO_PRODUCTO.BEBIDA) {
+                if (productoDTO.tipo == TIPO_PRODUCTO.BEBIDA) {
                     Text(
                         productoDTO.nombre,
                         fontSize = 18.sp,
                         color = Color(247, 146, 22)
                     )
-                    Text("BIEN FRESQUITA!",
+                    Text(
+                        "BIEN FRESQUITA!",
                         fontSize = 12.sp,
-                        modifier = Modifier.padding(top = 20.dp))
-                }
-                else {
-                Text(
-                    productoDTO.nombre,
-                    fontSize = 14.sp,
-                    color = Color(247, 146, 22)
-                )
-                productoDTO.listaIngredientes?.joinToString { it.nombre }
-                    ?.let { Text(it, fontSize = 10.sp) }
+                        modifier = Modifier.padding(top = 20.dp)
+                    )
+                } else {
+                    Text(
+                        productoDTO.nombre,
+                        fontSize = 14.sp,
+                        color = Color(247, 146, 22)
+                    )
+                    productoDTO.listaIngredientes?.joinToString { it.nombre }
+                        ?.let { Text(it, fontSize = 10.sp) }
                 }
             }
         }
@@ -243,7 +266,41 @@ fun ProductoItem(productoDTO: ProductoDTO, foto: Int) {
 
 
             var cantidad by rememberSaveable { mutableIntStateOf(1) }
-            Row(Modifier.align(Alignment.CenterHorizontally).padding(bottom = 10.dp)) {
+            Row(
+                Modifier
+                    .align(Alignment.CenterHorizontally)
+                    .padding(bottom = 10.dp)) {
+                TextButton(onClick = { desplegado = !desplegado }) {
+                    Text("Tamaño")
+                }
+
+                DropdownMenu(
+                    expanded = desplegado,
+                    onDismissRequest = { desplegado = false }
+                ) {
+                    DropdownMenuItem(
+                        onClick = {
+                            seleccionar = "Pequeño"
+                            desplegado = false
+                        },
+                        text = { Text(SIZE.PEQUENO.toString()) }
+                    )
+                    DropdownMenuItem(
+                        onClick = {
+                            seleccionar = "Mediano"
+                            desplegado = false
+                        },
+                        text = { Text(SIZE.MEDIANO.toString()) }
+                    )
+                    DropdownMenuItem(
+                        onClick = {
+                            seleccionar = "Grande"
+                            desplegado = false
+                        },
+                        text = { Text(SIZE.GRANDE.toString()) }
+                    )
+                }
+
                 TextButton(
                     onClick = { if (cantidad > 1) cantidad -= 1 }
                 ) {
@@ -269,7 +326,11 @@ fun ProductoItem(productoDTO: ProductoDTO, foto: Int) {
                         .background(Color(252, 170, 68))
                 )
                 {
-                    Icon(Icons.Filled.AddShoppingCart, "", tint = MaterialTheme.colorScheme.inverseOnSurface)
+                    Icon(
+                        Icons.Filled.AddShoppingCart,
+                        "",
+                        tint = MaterialTheme.colorScheme.inverseOnSurface
+                    )
                     Text("Añadir", modifier = Modifier.padding(start = 5.dp))
                 }
             }
