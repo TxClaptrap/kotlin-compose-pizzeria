@@ -1,5 +1,6 @@
 package com.example.compose_pizzeria.ui.home
 
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -44,6 +45,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -67,7 +69,7 @@ fun Home(viewModel: HomeViewModel) {
                 .shadow(
                     elevation = 8.dp,
                     shape = RoundedCornerShape(bottomEnd = 10.dp, bottomStart = 10.dp)
-                ) // Sombra aquí
+                ) // Sombra
         ) {
             TopAppBar(title = {
                 Text(
@@ -78,8 +80,16 @@ fun Home(viewModel: HomeViewModel) {
             },
                 actions = {
                     BadgedBox(badge = {
-                        Badge(modifier = Modifier.padding(end = 12.dp, top = 5.dp)) {
-                            Text(text = numeroProductos.toString())
+                        if (numeroProductos != 0) {
+                            Badge(modifier = Modifier.padding(end = 12.dp, top = 5.dp)) {
+                                Text(
+                                    text = if (numeroProductos < 100) {
+                                        numeroProductos.toString()
+                                    } else {
+                                        "+99"
+                                    }
+                                )
+                            }
                         }
                     }) {
                         Row(
@@ -117,7 +127,7 @@ fun Home(viewModel: HomeViewModel) {
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
-            contentPadding = innerPadding // Asegura de que el contenido no se superponga a la barra de herramientas
+            contentPadding = innerPadding // Truquillo para que el contenido no se superponga a la barra de herramientas
         ) {
             item {
                 OutlinedCard(
@@ -142,7 +152,7 @@ fun Home(viewModel: HomeViewModel) {
                 }
             }
             items(viewModel.listProductos.filter { it.tipo == TIPO_PRODUCTO.PIZZA }) { pizza ->
-                ProductoItem(pizza, viewModel.obtenerImagen(pizza.nombre), viewModel)
+                ProductoItem(pizza, viewModel.obtenerImagen(pizza.nombre), onAddToBasket = {productoDTO, size, i -> viewModel.onAddToBasket(productoDTO, size, i) })
             }
             item {
                 OutlinedCard(
@@ -167,7 +177,7 @@ fun Home(viewModel: HomeViewModel) {
                 }
             }
             items(viewModel.listProductos.filter { it.tipo == TIPO_PRODUCTO.PASTA }) { pasta ->
-                ProductoItem(pasta, viewModel.obtenerImagen(pasta.nombre), viewModel)
+                ProductoItem(pasta, viewModel.obtenerImagen(pasta.nombre), onAddToBasket = {productoDTO, size, i -> viewModel.onAddToBasket(productoDTO, size, i) })
             }
             item {
                 OutlinedCard(
@@ -192,18 +202,19 @@ fun Home(viewModel: HomeViewModel) {
                 }
             }
             items(viewModel.listProductos.filter { it.tipo == TIPO_PRODUCTO.BEBIDA }) { bebida ->
-                ProductoItem(bebida, viewModel.obtenerImagen(bebida.nombre), viewModel)
+                ProductoItem(bebida, viewModel.obtenerImagen(bebida.nombre), onAddToBasket = {productoDTO, size, i -> viewModel.onAddToBasket(productoDTO, size, i) })
             }
         }
     }
 }
 
 @Composable
-fun ProductoItem(productoDTO: ProductoDTO, foto: Int, viewModel: HomeViewModel) {
+fun ProductoItem(productoDTO: ProductoDTO, foto: Int, onAddToBasket: (ProductoDTO, SIZE?, Int) -> Unit) {
     var desplegado by rememberSaveable { mutableStateOf(false) }
     var seleccionar: SIZE? by rememberSaveable { mutableStateOf(null) }
-    var size: String? = null
+    var size: String? by rememberSaveable { mutableStateOf(null) }
     var cantidad by rememberSaveable { mutableIntStateOf(1) }
+    val context = LocalContext.current
 
 
     OutlinedCard(
@@ -297,24 +308,38 @@ fun ProductoItem(productoDTO: ProductoDTO, foto: Int, viewModel: HomeViewModel) 
                 TextButton(onClick = { if (cantidad < 99) cantidad += 1 }) {
                     Text("+", fontSize = 20.sp)
                 }
-                Spacer(modifier = Modifier.width(16.dp))
+                Spacer(modifier = Modifier.width(10.dp))
                 TextButton(
                     enabled = seleccionar != null || productoDTO.tipo == TIPO_PRODUCTO.PASTA,
                     onClick = {
-                        viewModel.onAddToBasket(productoDTO, seleccionar, cantidad)
+                        onAddToBasket(productoDTO, seleccionar, cantidad)
+                        Toast.makeText(context, "${productoDTO.nombre} se ha añadido al carrito x${cantidad}.", Toast.LENGTH_SHORT).show()
                     },
                     modifier = Modifier
                         .shadow(elevation = 5.dp, shape = RoundedCornerShape(16.dp))
                         .clip(RoundedCornerShape(16.dp))
-                        .background(Color(252, 170, 68))
+                        .background(
+                            if (seleccionar != null || productoDTO.tipo == TIPO_PRODUCTO.PASTA) {
+                                Color(252, 170, 68) // Color cuando está habilitado
+                            } else {
+                                Color(255, 200, 133) // Color cuando está deshabilitado
+                            }
+                        )
                 ) {
                     Icon(
                         Icons.Filled.AddShoppingCart,
                         "",
-                        tint = MaterialTheme.colorScheme.inverseOnSurface
+                        tint = MaterialTheme.colorScheme.inverseOnSurface,
+                        modifier = Modifier.size(13.dp)
                     )
-                    Text("Añadir", modifier = Modifier.padding(start = 5.dp))
+                    Text(
+                        "Añadir",
+                        modifier = Modifier.padding(start = 5.dp),
+                        fontSize = 12.sp,
+                        color = MaterialTheme.colorScheme.inverseOnSurface
+                    )
                 }
+
             }
         }
     }
