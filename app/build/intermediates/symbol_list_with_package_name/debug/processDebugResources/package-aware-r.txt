@@ -63,6 +63,7 @@ drawable bolognese
 drawable cabra
 drawable carbonara
 drawable carbonarapasta
+drawable cherry
 drawable cola
 drawable dripping
 drawable drippingicon
@@ -89,11 +90,14 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable nuka
 drawable pasta4quesos
 drawable pepe
 drawable picante
+drawable quantum
 drawable quesos4
 drawable vegetariana
+drawable water
 drawable zero
 id accessibility_action_clickable_span
 id accessibility_custom_action_0

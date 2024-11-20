@@ -68,14 +68,14 @@ class HomeViewModel {
         // Lista de productos
         listProductos = listOf(
             // Pizzas
-            ProductoDTO(TIPO_PRODUCTO.PIZZA, 1, "Carbonara", 10.0, SIZE.GRANDE, ingredientesCarbonaraPizza),
-            ProductoDTO(TIPO_PRODUCTO.PIZZA,2, "4 quesos", 9.5, SIZE.GRANDE, ingredientes4Quesos),
-            ProductoDTO(TIPO_PRODUCTO.PIZZA,3, "Pepe", 8.5, SIZE.GRANDE, ingredientesMasPepe),
-            ProductoDTO(TIPO_PRODUCTO.PIZZA,4, "Vegetariana", 8.0, SIZE.GRANDE, ingredientesVegetariana),
-            ProductoDTO(TIPO_PRODUCTO.PIZZA,5, "Mixta", 9.0, SIZE.GRANDE, ingredientesMixta),
-            ProductoDTO(TIPO_PRODUCTO.PIZZA,6, "Cabra", 10.5, SIZE.GRANDE, ingredientesCabra),
-            ProductoDTO(TIPO_PRODUCTO.PIZZA,7, "BBQ", 11.0, SIZE.GRANDE, ingredientesBBQ),
-            ProductoDTO(TIPO_PRODUCTO.PIZZA,8, "Aberrante", 8.5, SIZE.GRANDE, ingredientesPsicopata),
+            ProductoDTO(TIPO_PRODUCTO.PIZZA, 1, "Carbonara", 10.0, null, ingredientesCarbonaraPizza),
+            ProductoDTO(TIPO_PRODUCTO.PIZZA,2, "4 quesos", 9.5, null, ingredientes4Quesos),
+            ProductoDTO(TIPO_PRODUCTO.PIZZA,3, "Pepe", 8.5, null, ingredientesMasPepe),
+            ProductoDTO(TIPO_PRODUCTO.PIZZA,4, "Vegetariana", 8.0, null, ingredientesVegetariana),
+            ProductoDTO(TIPO_PRODUCTO.PIZZA,5, "Mixta", 9.0, null, ingredientesMixta),
+            ProductoDTO(TIPO_PRODUCTO.PIZZA,6, "Cabra", 10.5, null, ingredientesCabra),
+            ProductoDTO(TIPO_PRODUCTO.PIZZA,7, "BBQ", 11.0, null, ingredientesBBQ),
+            ProductoDTO(TIPO_PRODUCTO.PIZZA,8, "Aberrante", 8.5, null, ingredientesPsicopata),
 
             // Pastas
             ProductoDTO(TIPO_PRODUCTO.PASTA,13, "Spaghetti Carbonara", 8.0, null, ingredientesCarbonaraPasta),
@@ -84,10 +84,10 @@ class HomeViewModel {
             ProductoDTO(TIPO_PRODUCTO.PASTA,16, "Farfalle Birichine", 8.5, null, ingredientesPicantePasta),
 
                     // Bebidas
-            ProductoDTO(TIPO_PRODUCTO.BEBIDA,9, "Agua", 1.5, SIZE.MEDIANA, emptyList()),
-            ProductoDTO(TIPO_PRODUCTO.BEBIDA,10, "Coca Cola", 2.0, SIZE.MEDIANA, emptyList()),
-            ProductoDTO(TIPO_PRODUCTO.BEBIDA,11, "Coca Cola Zero", 2.0, SIZE.MEDIANA, emptyList()),
-            ProductoDTO(TIPO_PRODUCTO.BEBIDA,12, "Fuze Tea", 2.0, SIZE.MEDIANA, emptyList())
+            ProductoDTO(TIPO_PRODUCTO.BEBIDA,9, "Agua Potable Pura", 1.5, null, emptyList()),
+            ProductoDTO(TIPO_PRODUCTO.BEBIDA,10, "Nuka-Cola", 2.0, null, emptyList()),
+            ProductoDTO(TIPO_PRODUCTO.BEBIDA,11, "Nuka-Cherry", 2.0, null, emptyList()),
+            ProductoDTO(TIPO_PRODUCTO.BEBIDA,12, "Nuka-Cola Quantum", 3.0, null, emptyList())
         )
     }
 
@@ -108,10 +108,10 @@ class HomeViewModel {
         "Farfalle Birichine" -> R.drawable.picante
         //""
 
-        "Agua" -> R.drawable.agua
-        "Coca Cola" -> R.drawable.cola
-        "Coca Cola Zero" -> R.drawable.zero
-        "Fuze Tea" -> R.drawable.fuze
+        "Agua Potable Pura" -> R.drawable.water
+        "Nuka-Cola" -> R.drawable.nuka
+        "Nuka-Cherry" -> R.drawable.cherry
+        "Nuka-Cola Quantum" -> R.drawable.quantum
 
         else -> R.drawable.dripping // Si no encuentra el producto
     }

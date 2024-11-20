@@ -57,12 +57,15 @@ import com.example.compose_pizzeria.data.TIPO_PRODUCTO
 import modelo.SIZE
 import java.util.Locale
 
+// Pantalla principal que muestra productos categorizados y permite agregar al carrito.
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Home(viewModel: HomeViewModel) {
     val numeroProductos: Int by viewModel.numeroProductos.observeAsState(0)
 
+    // Estructura principal con barra superior y lista de productos.
     Scaffold(topBar = {
+        // Barra superior personalizada con un título y un carrito con badge.
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -73,62 +76,60 @@ fun Home(viewModel: HomeViewModel) {
         ) {
             TopAppBar(title = {
                 Text(
-                    text = "THE  DRIPPING  PIZZA",
-                    fontSize = 20.sp,
-                    color = Color(252, 148, 20)
+                    text = "THE  DRIPPING  PIZZA", fontSize = 20.sp, color = Color(252, 148, 20)
                 )
-            },
-                actions = {
-                    BadgedBox(badge = {
-                        if (numeroProductos != 0) {
-                            Badge(modifier = Modifier.padding(end = 12.dp, top = 5.dp)) {
-                                Text(
-                                    text = if (numeroProductos < 100) {
-                                        numeroProductos.toString()
-                                    } else {
-                                        "+99"
-                                    }
-                                )
-                            }
-                        }
-                    }) {
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically,
-                            modifier = Modifier.width(100.dp)
-                        ) {
-                            Image(
-                                painter = painterResource(R.drawable.drippingicon),
-                                contentDescription = null,
-                                modifier = Modifier.size(50.dp)
-                            )
-                            Spacer(modifier = Modifier.weight(1f))
-                            Icon(
-                                imageVector = Icons.Default.ShoppingCart,
-                                modifier = Modifier.padding(end = 15.dp),
-                                contentDescription = "Carrito"
+            }, actions = {
+                // Badge que muestra el número de productos en el carrito.
+                BadgedBox(badge = {
+                    if (numeroProductos != 0) {
+                        Badge(modifier = Modifier.padding(end = 12.dp, top = 5.dp)) {
+                            Text(
+                                text = if (numeroProductos < 100) {
+                                    numeroProductos.toString()
+                                } else {
+                                    "+99"
+                                }
                             )
                         }
                     }
-                },
-                colors = TopAppBarDefaults.smallTopAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primaryContainer.copy(
-                        alpha = 1f
-                    )
-                ),
-                modifier = Modifier.clip(
-                        RoundedCornerShape(
-                            bottomEnd = 10.dp,
-                            bottomStart = 10.dp
+                }) {
+                    // Icono del carrito y logo.
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier.width(100.dp)
+                    ) {
+                        Image(
+                            painter = painterResource(R.drawable.drippingicon),
+                            contentDescription = null,
+                            modifier = Modifier.size(50.dp)
                         )
-                    )
+                        Spacer(modifier = Modifier.weight(1f))
+                        Icon(
+                            imageVector = Icons.Default.ShoppingCart,
+                            modifier = Modifier.padding(end = 15.dp),
+                            contentDescription = "Carrito"
+                        )
+                    }
+                }
+            }, colors = TopAppBarDefaults.smallTopAppBarColors(
+                containerColor = MaterialTheme.colorScheme.primaryContainer.copy(
+                    alpha = 1f
+                )
+            ), modifier = Modifier.clip(
+                RoundedCornerShape(
+                    bottomEnd = 10.dp, bottomStart = 10.dp
+                )
+            )
             )
         }
     }) { innerPadding ->
+        // Lista de productos organizados por categoría (pizzas, pastas, bebidas).
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
             contentPadding = innerPadding // Truquillo para que el contenido no se superponga a la barra de herramientas
         ) {
+            // Categoría "Pizzas"
             item {
                 OutlinedCard(
                     modifier = Modifier
@@ -151,9 +152,17 @@ fun Home(viewModel: HomeViewModel) {
                     )
                 }
             }
+            // Listado de pizzas.
             items(viewModel.listProductos.filter { it.tipo == TIPO_PRODUCTO.PIZZA }) { pizza ->
-                ProductoItem(pizza, viewModel.obtenerImagen(pizza.nombre), onAddToBasket = {productoDTO, size, i -> viewModel.onAddToBasket(productoDTO, size, i) })
+                ProductoItem(pizza,
+                    viewModel.obtenerImagen(pizza.nombre),
+                    onAddToBasket = { productoDTO, size, i ->
+                        viewModel.onAddToBasket(
+                            productoDTO, size, i
+                        )
+                    })
             }
+            // Categoría "Pastas"
             item {
                 OutlinedCard(
                     modifier = Modifier
@@ -176,9 +185,17 @@ fun Home(viewModel: HomeViewModel) {
                     )
                 }
             }
+            // Listado de pastas.
             items(viewModel.listProductos.filter { it.tipo == TIPO_PRODUCTO.PASTA }) { pasta ->
-                ProductoItem(pasta, viewModel.obtenerImagen(pasta.nombre), onAddToBasket = {productoDTO, size, i -> viewModel.onAddToBasket(productoDTO, size, i) })
+                ProductoItem(pasta,
+                    viewModel.obtenerImagen(pasta.nombre),
+                    onAddToBasket = { productoDTO, size, i ->
+                        viewModel.onAddToBasket(
+                            productoDTO, size, i
+                        )
+                    })
             }
+            // Categoría "Bebidas"
             item {
                 OutlinedCard(
                     modifier = Modifier
@@ -201,22 +218,32 @@ fun Home(viewModel: HomeViewModel) {
                     )
                 }
             }
+            // Listado de bebidas.
             items(viewModel.listProductos.filter { it.tipo == TIPO_PRODUCTO.BEBIDA }) { bebida ->
-                ProductoItem(bebida, viewModel.obtenerImagen(bebida.nombre), onAddToBasket = {productoDTO, size, i -> viewModel.onAddToBasket(productoDTO, size, i) })
+                ProductoItem(bebida,
+                    viewModel.obtenerImagen(bebida.nombre),
+                    onAddToBasket = { productoDTO, size, i ->
+                        viewModel.onAddToBasket(
+                            productoDTO, size, i
+                        )
+                    })
             }
         }
     }
 }
 
+// Componente para mostrar un producto individual con opciones de tamaño y cantidad.
 @Composable
-fun ProductoItem(productoDTO: ProductoDTO, foto: Int, onAddToBasket: (ProductoDTO, SIZE?, Int) -> Unit) {
+fun ProductoItem(
+    productoDTO: ProductoDTO, foto: Int, onAddToBasket: (ProductoDTO, SIZE?, Int) -> Unit
+) {
     var desplegado by rememberSaveable { mutableStateOf(false) }
     var seleccionar: SIZE? by rememberSaveable { mutableStateOf(null) }
     var size: String? by rememberSaveable { mutableStateOf(null) }
     var cantidad by rememberSaveable { mutableIntStateOf(1) }
     val context = LocalContext.current
 
-
+    // Tarjeta para mostrar detalles del producto.
     OutlinedCard(
         modifier = Modifier
             .fillMaxWidth()
@@ -226,6 +253,7 @@ fun ProductoItem(productoDTO: ProductoDTO, foto: Int, onAddToBasket: (ProductoDT
             containerColor = MaterialTheme.colorScheme.surfaceVariant,
         ),
     ) {
+        // Sección principal del producto.
         Row {
             Box(
                 contentAlignment = Alignment.BottomEnd
@@ -244,33 +272,32 @@ fun ProductoItem(productoDTO: ProductoDTO, foto: Int, onAddToBasket: (ProductoDT
                     .size(width = 170.dp, height = 160.dp)
                     .padding(0.dp, 20.dp, 20.dp, 0.dp)
             ) {
+                // Información del producto.
                 if (productoDTO.tipo == TIPO_PRODUCTO.BEBIDA) {
                     Text(
                         productoDTO.nombre, fontSize = 18.sp, color = Color(247, 146, 22)
                     )
                     Text(
-                        "BIEN FRESQUITA!",
-                        fontSize = 12.sp,
-                        modifier = Modifier.padding(top = 20.dp)
+                        "ICE COLD!", fontSize = 12.sp, modifier = Modifier.padding(top = 20.dp)
                     )
                 } else {
                     Text(
                         productoDTO.nombre, fontSize = 14.sp, color = Color(247, 146, 22)
                     )
                     productoDTO.listaIngredientes?.joinToString { it.nombre }
-                        ?.let { Text(it, fontSize = 10.sp) }
+                        ?.let { Text("$it.", fontSize = 10.sp) }
+
                 }
             }
         }
-
-
+        // Opciones de tamaño, cantidad y botón para añadir al carrito.
         Column(modifier = Modifier.align(Alignment.CenterHorizontally)) {
-
             Row(
                 Modifier
                     .align(Alignment.CenterHorizontally)
                     .padding(bottom = 10.dp)
             ) {
+                // Selector de tamaño para productos distintos de pastas.
                 if (productoDTO.tipo != TIPO_PRODUCTO.PASTA) {
                     TextButton(onClick = { desplegado = !desplegado }) {
                         Text(size ?: "Tamaño")
@@ -280,21 +307,21 @@ fun ProductoItem(productoDTO: ProductoDTO, foto: Int, onAddToBasket: (ProductoDT
                         DropdownMenuItem(onClick = {
                             seleccionar = SIZE.PEQUENA
                             desplegado = false
-                            size = "Pequeña"
+                            size = "pequeña"
                         }, text = { Text("Pequeña") })
                         DropdownMenuItem(onClick = {
                             seleccionar = SIZE.MEDIANA
                             desplegado = false
-                            size = "Mediana"
+                            size = "mediana"
                         }, text = { Text("Mediana") })
                         DropdownMenuItem(onClick = {
                             seleccionar = SIZE.GRANDE
                             desplegado = false
-                            size = "Grande"
+                            size = "grande"
                         }, text = { Text("Grande") })
                     }
                 }
-
+                // Control de cantidad con botones "+" y "-".
                 TextButton(onClick = { if (cantidad > 1) cantidad -= 1 }) {
                     Text("-", fontSize = 20.sp)
                 }
@@ -309,11 +336,43 @@ fun ProductoItem(productoDTO: ProductoDTO, foto: Int, onAddToBasket: (ProductoDT
                     Text("+", fontSize = 20.sp)
                 }
                 Spacer(modifier = Modifier.width(10.dp))
-                TextButton(
+                /*TextButton(
                     enabled = seleccionar != null || productoDTO.tipo == TIPO_PRODUCTO.PASTA,
                     onClick = {
                         onAddToBasket(productoDTO, seleccionar, cantidad)
-                        Toast.makeText(context, "${productoDTO.nombre} se ha añadido al carrito x${cantidad}.", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            context,
+                            "${productoDTO.nombre} se ha añadido al carrito x${cantidad}.",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                 */
+                // Botón para añadir el producto al carrito.
+                TextButton(
+                    onClick = {
+                        when (productoDTO.tipo) {
+                            TIPO_PRODUCTO.PIZZA, TIPO_PRODUCTO.BEBIDA -> if (seleccionar == null) {
+                                Toast.makeText(
+                                    context, "Por favor, selecciona un tamaño.", Toast.LENGTH_SHORT
+                                ).show()
+                            } else {
+                                onAddToBasket(productoDTO, seleccionar, cantidad)
+                                Toast.makeText(
+                                    context,
+                                    "${productoDTO.nombre} $size x${cantidad} añadido al carrito.",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+
+                            TIPO_PRODUCTO.PASTA -> {
+                                onAddToBasket(productoDTO, null, cantidad)
+                                Toast.makeText(
+                                    context,
+                                    "${productoDTO.nombre} x${cantidad} añadido al carrito.",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                        }
                     },
                     modifier = Modifier
                         .shadow(elevation = 5.dp, shape = RoundedCornerShape(16.dp))
@@ -339,12 +398,10 @@ fun ProductoItem(productoDTO: ProductoDTO, foto: Int, onAddToBasket: (ProductoDT
                         color = MaterialTheme.colorScheme.inverseOnSurface
                     )
                 }
-
             }
         }
     }
 }
-
 
 @Preview(showBackground = true)
 @Composable

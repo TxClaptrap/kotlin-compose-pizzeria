@@ -17,6 +17,7 @@ drawable bolognese
 drawable cabra
 drawable carbonara
 drawable carbonarapasta
+drawable cherry
 drawable cola
 drawable dripping
 drawable drippingicon
@@ -24,11 +25,14 @@ drawable fuze
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable mixta
+drawable nuka
 drawable pasta4quesos
 drawable pepe
 drawable picante
+drawable quantum
 drawable quesos4
 drawable vegetariana
+drawable water
 drawable zero
 mipmap ic_launcher
 mipmap ic_launcher_round
