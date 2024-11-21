@@ -2,7 +2,7 @@ import android.text.TextUtils
 import android.util.Log
 import android.util.Patterns
 import androidx.lifecycle.MutableLiveData
-import com.example.compose_pizzeria.data.ErrorMensaje
+import com.example.compose_pizzeria.ui.registro.ErrorMensaje
 import modelo.ClienteDTO
 
 
@@ -121,6 +121,8 @@ class RegistroViewModel {
         if (clienteDTO != null) {
             Log.d("RegistroViewModel", "ClienteDTO: $clienteDTO")
         }*/
+
+        /* cliente.value?.let { Log.d("Registro", "Cliente: $it") } MEJOR ASÍ*/
 
         cliente.value?.let { cliente ->
             Log.d("Registro", "Cliente: $cliente")

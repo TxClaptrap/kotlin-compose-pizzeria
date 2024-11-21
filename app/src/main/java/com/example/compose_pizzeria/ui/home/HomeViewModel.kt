@@ -68,13 +68,13 @@ class HomeViewModel {
         // Lista de productos
         listProductos = listOf(
             // Pizzas
-            ProductoDTO(TIPO_PRODUCTO.PIZZA, 1, "Carbonara", 10.0, null, ingredientesCarbonaraPizza),
-            ProductoDTO(TIPO_PRODUCTO.PIZZA,2, "4 quesos", 9.5, null, ingredientes4Quesos),
-            ProductoDTO(TIPO_PRODUCTO.PIZZA,3, "Pepe", 8.5, null, ingredientesMasPepe),
-            ProductoDTO(TIPO_PRODUCTO.PIZZA,4, "Vegetariana", 8.0, null, ingredientesVegetariana),
+            ProductoDTO(TIPO_PRODUCTO.PIZZA, 1, "Alucinógena", 10.0, null, ingredientesCarbonaraPizza),
+            ProductoDTO(TIPO_PRODUCTO.PIZZA,2, "Radioactiva", 9.5, null, ingredientes4Quesos),
+            ProductoDTO(TIPO_PRODUCTO.PIZZA,3, "Sarpullida", 8.5, null, ingredientesMasPepe),
+            ProductoDTO(TIPO_PRODUCTO.PIZZA,4, "Alfalfosa", 8.0, null, ingredientesVegetariana),
             ProductoDTO(TIPO_PRODUCTO.PIZZA,5, "Mixta", 9.0, null, ingredientesMixta),
-            ProductoDTO(TIPO_PRODUCTO.PIZZA,6, "Cabra", 10.5, null, ingredientesCabra),
-            ProductoDTO(TIPO_PRODUCTO.PIZZA,7, "BBQ", 11.0, null, ingredientesBBQ),
+            ProductoDTO(TIPO_PRODUCTO.PIZZA,6, "Beeeee!", 10.5, null, ingredientesCabra),
+            ProductoDTO(TIPO_PRODUCTO.PIZZA,7, "Sangrienta", 11.0, null, ingredientesBBQ),
             ProductoDTO(TIPO_PRODUCTO.PIZZA,8, "Aberrante", 8.5, null, ingredientesPsicopata),
 
             // Pastas
@@ -93,13 +93,13 @@ class HomeViewModel {
 
 
     fun obtenerImagen(nombre: String) = when(nombre) {
-        "Carbonara" -> R.drawable.carbonara
-        "4 quesos" -> R.drawable.quesos4
-        "Pepe" -> R.drawable.pepe
-        "Vegetariana" -> R.drawable.vegetariana
+        "Alucinógena" -> R.drawable.carbonara
+        "Radioactiva" -> R.drawable.quesos4
+        "Sarpullida" -> R.drawable.pepe
+        "Alfalfosa" -> R.drawable.vegetariana
         "Mixta" -> R.drawable.mixta
-        "Cabra" -> R.drawable.cabra
-        "BBQ" -> R.drawable.bbq
+        "Beeeee!" -> R.drawable.cabra
+        "Sangrienta" -> R.drawable.bbq
         "Aberrante" -> R.drawable.aberrante
 
         "Spaghetti Bolognese" -> R.drawable.bolognese

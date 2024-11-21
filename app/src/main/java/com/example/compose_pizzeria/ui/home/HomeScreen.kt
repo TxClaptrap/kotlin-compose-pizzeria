@@ -142,7 +142,7 @@ fun Home(viewModel: HomeViewModel) {
 
                 ) {
                     Text(
-                        "Pizzas",
+                        "Con las manos!",
                         color = Color(138, 86, 54),
                         fontSize = 20.sp,
                         textAlign = TextAlign.Center,
@@ -175,7 +175,7 @@ fun Home(viewModel: HomeViewModel) {
 
                 ) {
                     Text(
-                        "Pastas",
+                        "Con tenedor!",
                         color = Color(138, 86, 54),
                         fontSize = 20.sp,
                         textAlign = TextAlign.Center,
@@ -208,7 +208,7 @@ fun Home(viewModel: HomeViewModel) {
 
                 ) {
                     Text(
-                        "Bebidas",
+                        "Hidrátate!",
                         color = Color(138, 86, 54),
                         fontSize = 20.sp,
                         textAlign = TextAlign.Center,
