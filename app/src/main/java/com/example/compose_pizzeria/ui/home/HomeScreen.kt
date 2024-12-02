@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.sizeIn
@@ -63,7 +62,6 @@ import java.util.Locale
 @Composable
 fun Home(viewModel: HomeViewModel) {
     val numeroProductos: Int by viewModel.numeroProductos.observeAsState(0)
-    val listaProductoDTO: List<ProductoDTO> by viewModel.listaProductos.observeAsState(listOf())
 
     // Estructura principal con barra superior y lista de productos.
     Scaffold(topBar = {
@@ -77,9 +75,9 @@ fun Home(viewModel: HomeViewModel) {
                 ) // Sombra
         ) {
             TopAppBar(title = {
-                Image(painter = painterResource(R.drawable.tdp),
-                    contentDescription = null,
-                    modifier = Modifier.fillMaxWidth().padding(end = 5.dp))
+                Text(
+                    text = "THE  DRIPPING  PIZZA", fontSize = 20.sp, color = Color(252, 148, 20)
+                )
             }, actions = {
                 // Badge que muestra el número de productos en el carrito.
                 BadgedBox(badge = {
@@ -135,33 +133,27 @@ fun Home(viewModel: HomeViewModel) {
             item {
                 OutlinedCard(
                     modifier = Modifier
-                        //.width(300.dp)
-                        .padding(top = 30.dp, bottom = 10.dp, start = 10.dp, end = 10.dp)
-                        .fillMaxWidth()
-                        .height(55.dp)
+                        .width(200.dp)
+                        .padding(top = 20.dp, bottom = 10.dp)
                         .shadow(elevation = 8.dp, shape = RoundedCornerShape(10.dp)),
                     colors = CardDefaults.cardColors(
                         containerColor = MaterialTheme.colorScheme.secondaryContainer
                     )
 
                 ) {
-                    Box(
+                    Text(
+                        "Pizzas",
+                        color = Color(138, 86, 54),
+                        fontSize = 20.sp,
+                        textAlign = TextAlign.Center,
                         modifier = Modifier
-                            .fillMaxSize()
-                            .padding(10.dp),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Text(
-                            "CON LAS MANOS!",
-                            color = Color(235, 122, 52),
-                            style = MaterialTheme.typography.titleLarge,
-                            textAlign = TextAlign.Center
-                        )
-                    }
+                            .align(Alignment.CenterHorizontally)
+                            .padding(10.dp)
+                    )
                 }
             }
             // Listado de pizzas.
-            items(listaProductoDTO.filter { it.tipo == TIPO_PRODUCTO.PIZZA }) { pizza ->
+            items(viewModel.listProductos.filter { it.tipo == TIPO_PRODUCTO.PIZZA }) { pizza ->
                 ProductoItem(pizza,
                     viewModel.obtenerImagen(pizza.nombre),
                     onAddToBasket = { productoDTO, size, i ->
@@ -174,33 +166,27 @@ fun Home(viewModel: HomeViewModel) {
             item {
                 OutlinedCard(
                     modifier = Modifier
-                        //.width(300.dp)
-                        .padding(top =30.dp, bottom = 10.dp, start = 10.dp, end = 10.dp)
-                        .fillMaxWidth()
-                        .height(55.dp)
+                        .width(200.dp)
+                        .padding(10.dp)
                         .shadow(elevation = 8.dp, shape = RoundedCornerShape(10.dp)),
                     colors = CardDefaults.cardColors(
                         containerColor = MaterialTheme.colorScheme.secondaryContainer
                     )
 
                 ) {
-                    Box(
+                    Text(
+                        "Pastas",
+                        color = Color(138, 86, 54),
+                        fontSize = 20.sp,
+                        textAlign = TextAlign.Center,
                         modifier = Modifier
-                            .fillMaxSize()
-                            .padding(10.dp),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Text(
-                            "CON TENEDOR!",
-                            color = Color(235, 122, 52),
-                            style = MaterialTheme.typography.titleLarge,
-                            textAlign = TextAlign.Center
-                        )
-                    }
+                            .align(Alignment.CenterHorizontally)
+                            .padding(10.dp)
+                    )
                 }
             }
             // Listado de pastas.
-            items(listaProductoDTO.filter { it.tipo == TIPO_PRODUCTO.PASTA }) { pasta ->
+            items(viewModel.listProductos.filter { it.tipo == TIPO_PRODUCTO.PASTA }) { pasta ->
                 ProductoItem(pasta,
                     viewModel.obtenerImagen(pasta.nombre),
                     onAddToBasket = { productoDTO, size, i ->
@@ -213,33 +199,27 @@ fun Home(viewModel: HomeViewModel) {
             item {
                 OutlinedCard(
                     modifier = Modifier
-                        //.width(300.dp)
-                        .padding(top = 30.dp, bottom = 10.dp, start = 10.dp, end = 10.dp)
-                        .fillMaxWidth()
-                        .height(55.dp)
+                        .width(200.dp)
+                        .padding(10.dp)
                         .shadow(elevation = 8.dp, shape = RoundedCornerShape(10.dp)),
                     colors = CardDefaults.cardColors(
                         containerColor = MaterialTheme.colorScheme.secondaryContainer
                     )
 
                 ) {
-                    Box(
+                    Text(
+                        "Bebidas",
+                        color = Color(138, 86, 54),
+                        fontSize = 20.sp,
+                        textAlign = TextAlign.Center,
                         modifier = Modifier
-                            .fillMaxSize()
-                            .padding(10.dp),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Text(
-                            "HIDRÁTATE!",
-                            color = Color(235, 122, 52),
-                            style = MaterialTheme.typography.titleLarge,
-                            textAlign = TextAlign.Center
-                        )
-                    }
+                            .align(Alignment.CenterHorizontally)
+                            .padding(10.dp)
+                    )
                 }
             }
             // Listado de bebidas.
-            items(listaProductoDTO.filter { it.tipo == TIPO_PRODUCTO.BEBIDA }) { bebida ->
+            items(viewModel.listProductos.filter { it.tipo == TIPO_PRODUCTO.BEBIDA }) { bebida ->
                 ProductoItem(bebida,
                     viewModel.obtenerImagen(bebida.nombre),
                     onAddToBasket = { productoDTO, size, i ->
@@ -310,7 +290,6 @@ fun ProductoItem(
                 }
             }
         }
-
         // Opciones de tamaño, cantidad y botón para añadir al carrito.
         Column(modifier = Modifier.align(Alignment.CenterHorizontally)) {
             Row(
@@ -342,7 +321,6 @@ fun ProductoItem(
                         }, text = { Text("Grande") })
                     }
                 }
-
                 // Control de cantidad con botones "+" y "-".
                 TextButton(onClick = { if (cantidad > 1) cantidad -= 1 }) {
                     Text("-", fontSize = 20.sp)
@@ -369,7 +347,6 @@ fun ProductoItem(
                         ).show()
                     }
                  */
-
                 // Botón para añadir el producto al carrito.
                 TextButton(
                     onClick = {

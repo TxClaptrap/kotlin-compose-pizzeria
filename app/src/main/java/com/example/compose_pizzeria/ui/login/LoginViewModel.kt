@@ -13,22 +13,13 @@ class LoginViewModel {
         this.loginCliente.value = newClienteLoginDTO
 
         loginActivo.value =
-            listOf(
-                newClienteLoginDTO.email,
-                newClienteLoginDTO.password
-            ).none { it.isBlank() }
-
-        /*
-        loginActivo.value =
             loginCliente.value?.let {
                 listOf(
                     it.email,
                     it.password
                 ).none { it.isBlank() }
             }
-         */
     }
-
     fun onLogearClick() {
         loginCliente.value?.let { cliente ->
             Log.d("Login", "Cliente: $cliente")

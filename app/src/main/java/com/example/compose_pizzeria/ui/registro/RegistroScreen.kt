@@ -33,6 +33,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import com.example.compose_pizzeria.R
+import com.example.compose_pizzeria.data.ErrorMensaje
 import modelo.ClienteDTO
 
 @Composable
