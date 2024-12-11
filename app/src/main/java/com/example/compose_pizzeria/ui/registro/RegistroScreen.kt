@@ -32,8 +32,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.example.compose_pizzeria.R
 import com.example.compose_pizzeria.data.ErrorMensaje
+import com.example.compose_pizzeria.ui.navigation.Screen
 import modelo.ClienteDTO
 
 @Composable
@@ -47,6 +51,7 @@ fun Campo(
     var esconder by remember { mutableStateOf(true) } // Por defecto, la contraseña está oculta
 
     OutlinedTextField(
+        maxLines = 1,
         keyboardOptions = KeyboardOptions(keyboardType = teclado),
         modifier = Modifier
             .fillMaxSize()
@@ -83,7 +88,7 @@ fun Campo(
 }
 
 @Composable
-fun Registro(viewModel: RegistroViewModel) {
+fun Registro(viewModel: RegistroViewModel, navController: NavController) {
     val cliente: ClienteDTO by viewModel.cliente.observeAsState(ClienteDTO())
     val registroActivo: Boolean by viewModel.registroActivo.observeAsState(false)
     val errorMensaje: ErrorMensaje? by viewModel.errorMensaje.observeAsState(null)
@@ -148,7 +153,8 @@ fun Registro(viewModel: RegistroViewModel) {
                 errorMensaje?.password
             )
             Button(
-                onClick = { viewModel.onRegistrarClick() }, modifier = Modifier
+                onClick = { viewModel.onRegistrarClick()
+                    navController.navigate(Screen.Login.route)}, modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = 40.dp, bottom = 40.dp), enabled = registroActivo
             ) { Text("Registar") }
@@ -159,5 +165,5 @@ fun Registro(viewModel: RegistroViewModel) {
 @Preview(showBackground = true)
 @Composable
 fun RegistroPreview() {
-    Registro(viewModel = RegistroViewModel())
+    Registro(viewModel = RegistroViewModel(null), rememberNavController())
 }

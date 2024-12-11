@@ -2,6 +2,7 @@ package com.example.compose_pizzeria.ui.home
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.example.compose_pizzeria.R
 import com.example.compose_pizzeria.data.ProductoDTO
 import com.example.compose_pizzeria.data.TIPO_PRODUCTO
@@ -10,7 +11,7 @@ import modelo.LineaPedidoDTO
 import modelo.PedidoDTO
 import modelo.SIZE
 
-class HomeViewModel {
+class HomeViewModel(clienteRepository: Any?) : ViewModel() {
     //private val lista: List<ProductoDTO> = listOf()
     //val productos = MutableLiveData(lista)
     //O si te gusta más así...:

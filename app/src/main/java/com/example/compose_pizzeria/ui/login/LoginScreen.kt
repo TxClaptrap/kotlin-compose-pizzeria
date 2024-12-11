@@ -10,6 +10,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
@@ -18,12 +19,16 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.example.compose_pizzeria.R
 import com.example.compose_pizzeria.data.ClienteLoginDTO
+import com.example.compose_pizzeria.ui.navigation.Screen
 import com.example.compose_pizzeria.ui.registro.Campo
 
 @Composable
-fun Login(viewModel: LoginViewModel) {
+fun Login(viewModel: LoginViewModel, navController: NavController) {
     val loginCliente: ClienteLoginDTO by viewModel.loginCliente.observeAsState(ClienteLoginDTO())
     val loginActivo: Boolean by viewModel.loginActivo.observeAsState(false)
 
@@ -59,11 +64,15 @@ fun Login(viewModel: LoginViewModel) {
                 loginCliente.password,
                 null
             )
-            Button(
-                onClick = { viewModel.onLogearClick() }, modifier = Modifier
+            Button( //TODO comprobar existencia en base de datos rest
+                onClick = { viewModel.onLogearClick()
+                    navController.navigate(Screen.Home.route)}, modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = 40.dp, bottom = 40.dp), enabled = loginActivo
             ) { Text("Iniciar Sesión") }
+            TextButton(onClick = {navController.navigate(Screen.Registro.route)}) {
+                Text("Regístrate aquí")
+            }
         }
     }
 }
@@ -71,5 +80,5 @@ fun Login(viewModel: LoginViewModel) {
 @Preview(showBackground = true)
 @Composable
 fun LoginPreview() {
-    Login(viewModel = LoginViewModel())
+    Login(viewModel = LoginViewModel(null), rememberNavController())
 }

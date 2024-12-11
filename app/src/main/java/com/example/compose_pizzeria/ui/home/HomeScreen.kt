@@ -24,20 +24,27 @@ import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.DrawerState
+import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.ModalDrawerSheet
+import androidx.compose.material3.ModalNavigationDrawer
+import androidx.compose.material3.NavigationDrawerItem
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -51,77 +58,109 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.compose_pizzeria.R
 import com.example.compose_pizzeria.data.ProductoDTO
 import com.example.compose_pizzeria.data.TIPO_PRODUCTO
+import com.example.compose_pizzeria.ui.navigation.Screen
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 import modelo.SIZE
 import java.util.Locale
 
-// Pantalla principal que muestra productos categorizados y permite agregar al carrito.
+@Composable
+fun HomeScreen (navController: NavController, viewModel: HomeViewModel) {
+    val totalProductos by viewModel.numeroProductos.observeAsState(0)
+    val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
+    val scope = rememberCoroutineScope()
+    ModalNavigationDrawer(
+        drawerState = drawerState,
+        drawerContent = {
+            Drawer(navController, drawerState, scope, listOf(Screen.Login))
+        }) {
+        Scaffold(
+            topBar = { TopBar(drawerState, scope, totalProductos) },
+            content = {
+                Home(viewModel = viewModel, navController = navController, Modifier.padding(it))
+            }
+        )
+
+    }
+}
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Home(viewModel: HomeViewModel) {
-    val numeroProductos: Int by viewModel.numeroProductos.observeAsState(0)
+fun TopBar(drawerState: DrawerState, scope: CoroutineScope, totalProductos: Int){
+
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .shadow(
+                elevation = 8.dp,
+                shape = RoundedCornerShape(bottomEnd = 10.dp, bottomStart = 10.dp)
+            ) // Sombra
+    ) {
+        TopAppBar(title = {
+            Text(
+                text = "THE  DRIPPING  PIZZA",
+                fontSize = 20.sp,
+                color = Color(252, 148, 20)
+            )
+        }, actions = {
+            // Badge que muestra el número de productos en el carrito.
+            BadgedBox(badge = {
+                if (totalProductos != 0) {
+                    Badge(modifier = Modifier.padding(end = 12.dp, top = 5.dp)) {
+                        Text(
+                            text = if (totalProductos < 100) {
+                                totalProductos.toString()
+                            } else {
+                                "+99"
+                            }
+                        )
+                    }
+                }
+            }) {
+                // Icono del carrito y logo.
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.width(100.dp)
+                ) {
+                    Image(
+                        painter = painterResource(R.drawable.drippingicon),
+                        contentDescription = null,
+                        modifier = Modifier.size(50.dp)
+                    )
+                    Spacer(modifier = Modifier.weight(1f))
+                    Icon(
+                        imageVector = Icons.Default.ShoppingCart,
+                        modifier = Modifier.padding(end = 15.dp),
+                        contentDescription = "Carrito"
+                    )
+                }
+            }
+        }, colors = TopAppBarDefaults.smallTopAppBarColors(
+            containerColor = MaterialTheme.colorScheme.primaryContainer.copy(
+                alpha = 1f
+            )
+        ), modifier = Modifier.clip(
+            RoundedCornerShape(
+                bottomEnd = 10.dp, bottomStart = 10.dp
+            )
+        )
+        )
+    }
+}
+// Pantalla principal que muestra productos categorizados y permite agregar al carrito.
+
+@Composable
+fun Home(viewModel: HomeViewModel, navController: NavController, padding: Modifier) {
 
     // Estructura principal con barra superior y lista de productos.
     Scaffold(topBar = {
         // Barra superior personalizada con un título y un carrito con badge.
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .shadow(
-                    elevation = 8.dp,
-                    shape = RoundedCornerShape(bottomEnd = 10.dp, bottomStart = 10.dp)
-                ) // Sombra
-        ) {
-            TopAppBar(title = {
-                Text(
-                    text = "THE  DRIPPING  PIZZA", fontSize = 20.sp, color = Color(252, 148, 20)
-                )
-            }, actions = {
-                // Badge que muestra el número de productos en el carrito.
-                BadgedBox(badge = {
-                    if (numeroProductos != 0) {
-                        Badge(modifier = Modifier.padding(end = 12.dp, top = 5.dp)) {
-                            Text(
-                                text = if (numeroProductos < 100) {
-                                    numeroProductos.toString()
-                                } else {
-                                    "+99"
-                                }
-                            )
-                        }
-                    }
-                }) {
-                    // Icono del carrito y logo.
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier.width(100.dp)
-                    ) {
-                        Image(
-                            painter = painterResource(R.drawable.drippingicon),
-                            contentDescription = null,
-                            modifier = Modifier.size(50.dp)
-                        )
-                        Spacer(modifier = Modifier.weight(1f))
-                        Icon(
-                            imageVector = Icons.Default.ShoppingCart,
-                            modifier = Modifier.padding(end = 15.dp),
-                            contentDescription = "Carrito"
-                        )
-                    }
-                }
-            }, colors = TopAppBarDefaults.smallTopAppBarColors(
-                containerColor = MaterialTheme.colorScheme.primaryContainer.copy(
-                    alpha = 1f
-                )
-            ), modifier = Modifier.clip(
-                RoundedCornerShape(
-                    bottomEnd = 10.dp, bottomStart = 10.dp
-                )
-            )
-            )
-        }
+
     }) { innerPadding ->
         // Lista de productos organizados por categoría (pizzas, pastas, bebidas).
         LazyColumn(
@@ -232,10 +271,40 @@ fun Home(viewModel: HomeViewModel) {
     }
 }
 
+@Composable
+fun Drawer(
+    navController: NavController,
+    drawerState: DrawerState,
+    scope: CoroutineScope,
+    items: List<Screen>
+) {
+    ModalDrawerSheet(modifier = Modifier.width(250.dp)) {
+        Column {
+            items.forEach { screen ->
+                DrawerItem(navController, screen)
+                scope.launch { drawerState.close() }
+            }
+        }
+    }
+}
+
+@Composable
+fun DrawerItem(navController: NavController, screen: Screen) {
+    NavigationDrawerItem(
+        label = { Text(screen.route) },
+        selected = false,
+        onClick = {
+            navController.navigate(screen.route) { launchSingleTop = true }
+        }
+    )
+}
+
 // Componente para mostrar un producto individual con opciones de tamaño y cantidad.
 @Composable
 fun ProductoItem(
-    productoDTO: ProductoDTO, foto: Int, onAddToBasket: (ProductoDTO, SIZE?, Int) -> Unit
+    productoDTO: ProductoDTO,
+    foto: Int,
+    onAddToBasket: (ProductoDTO, SIZE?, Int) -> Unit
 ) {
     var desplegado by rememberSaveable { mutableStateOf(false) }
     var seleccionar: SIZE? by rememberSaveable { mutableStateOf(null) }
@@ -275,14 +344,20 @@ fun ProductoItem(
                 // Información del producto.
                 if (productoDTO.tipo == TIPO_PRODUCTO.BEBIDA) {
                     Text(
-                        productoDTO.nombre, fontSize = 18.sp, color = Color(247, 146, 22)
+                        productoDTO.nombre,
+                        fontSize = 18.sp,
+                        color = Color(247, 146, 22)
                     )
                     Text(
-                        "ICE COLD!", fontSize = 12.sp, modifier = Modifier.padding(top = 20.dp)
+                        "ICE COLD!",
+                        fontSize = 12.sp,
+                        modifier = Modifier.padding(top = 20.dp)
                     )
                 } else {
                     Text(
-                        productoDTO.nombre, fontSize = 14.sp, color = Color(247, 146, 22)
+                        productoDTO.nombre,
+                        fontSize = 14.sp,
+                        color = Color(247, 146, 22)
                     )
                     productoDTO.listaIngredientes?.joinToString { it.nombre }
                         ?.let { Text("$it.", fontSize = 10.sp) }
@@ -303,7 +378,9 @@ fun ProductoItem(
                         Text(size ?: "Tamaño")
                     }
 
-                    DropdownMenu(expanded = desplegado, onDismissRequest = { desplegado = false }) {
+                    DropdownMenu(
+                        expanded = desplegado,
+                        onDismissRequest = { desplegado = false }) {
                         DropdownMenuItem(onClick = {
                             seleccionar = SIZE.PEQUENA
                             desplegado = false
@@ -353,7 +430,9 @@ fun ProductoItem(
                         when (productoDTO.tipo) {
                             TIPO_PRODUCTO.PIZZA, TIPO_PRODUCTO.BEBIDA -> if (seleccionar == null) {
                                 Toast.makeText(
-                                    context, "Por favor, selecciona un tamaño.", Toast.LENGTH_SHORT
+                                    context,
+                                    "Por favor, selecciona un tamaño.",
+                                    Toast.LENGTH_SHORT
                                 ).show()
                             } else {
                                 onAddToBasket(productoDTO, seleccionar, cantidad)
@@ -406,5 +485,8 @@ fun ProductoItem(
 @Preview(showBackground = true)
 @Composable
 fun Preview() {
-    Home(HomeViewModel())
+    HomeScreen(
+        rememberNavController(),
+        HomeViewModel(null)
+    )
 }

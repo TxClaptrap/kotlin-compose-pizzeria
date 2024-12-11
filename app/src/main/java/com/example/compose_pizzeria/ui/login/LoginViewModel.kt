@@ -2,9 +2,10 @@ package com.example.compose_pizzeria.ui.login
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.example.compose_pizzeria.data.ClienteLoginDTO
 
-class LoginViewModel {
+class LoginViewModel(clienteRepository: Any?) : ViewModel() {
     val loginCliente = MutableLiveData<ClienteLoginDTO>()
     val loginActivo = MutableLiveData(false)
 

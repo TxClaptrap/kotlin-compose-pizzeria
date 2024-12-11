@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.compose_pizzeria.app-mergeDebugResources-51:/values-v28/values-v28.xml",
+            "outputFile": "com.example.compose_pizzeria.app-mergeDebugResources-57:/values-v28/values-v28.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Zi0n\\.gradle\\caches\\transforms-4\\0079db875631923a65e6644f2c7e8d33\\transformed\\core-1.6.1\\res\\values-v28\\values.xml",
+                    "source": "C:\\Users\\Zi0n\\.gradle\\caches\\transforms-4\\f8bb6944739544b57bc37423550a70ff\\transformed\\core-1.6.1\\res\\values-v28\\values.xml",
                     "from": {
                         "startLines": "4,13",
                         "startColumns": "0,0",
