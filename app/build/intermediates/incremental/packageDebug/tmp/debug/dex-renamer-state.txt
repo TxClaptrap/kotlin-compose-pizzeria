@@ -1,15 +1,15 @@
-#Wed Dec 11 22:25:56 CET 2024
-base.0=C\:\\Users\\Zi0n\\Desktop\\git\\PM\\kotlin-compose-pizzeria\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
-base.1=C\:\\Users\\Zi0n\\Desktop\\git\\PM\\kotlin-compose-pizzeria\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
-base.10=C\:\\Users\\Zi0n\\Desktop\\git\\PM\\kotlin-compose-pizzeria\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
-base.2=C\:\\Users\\Zi0n\\Desktop\\git\\PM\\kotlin-compose-pizzeria\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\10\\classes.dex
-base.3=C\:\\Users\\Zi0n\\Desktop\\git\\PM\\kotlin-compose-pizzeria\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\13\\classes.dex
-base.4=C\:\\Users\\Zi0n\\Desktop\\git\\PM\\kotlin-compose-pizzeria\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\2\\classes.dex
-base.5=C\:\\Users\\Zi0n\\Desktop\\git\\PM\\kotlin-compose-pizzeria\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\3\\classes.dex
-base.6=C\:\\Users\\Zi0n\\Desktop\\git\\PM\\kotlin-compose-pizzeria\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\4\\classes.dex
-base.7=C\:\\Users\\Zi0n\\Desktop\\git\\PM\\kotlin-compose-pizzeria\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\6\\classes.dex
-base.8=C\:\\Users\\Zi0n\\Desktop\\git\\PM\\kotlin-compose-pizzeria\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\7\\classes.dex
-base.9=C\:\\Users\\Zi0n\\Desktop\\git\\PM\\kotlin-compose-pizzeria\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\8\\classes.dex
+#Thu Dec 12 08:51:48 CET 2024
+base.0=C\:\\Users\\Ruben\\Desktop\\destrozo-pizzeria\\kotlin-compose-pizzeria\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+base.1=C\:\\Users\\Ruben\\Desktop\\destrozo-pizzeria\\kotlin-compose-pizzeria\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
+base.10=C\:\\Users\\Ruben\\Desktop\\destrozo-pizzeria\\kotlin-compose-pizzeria\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
+base.2=C\:\\Users\\Ruben\\Desktop\\destrozo-pizzeria\\kotlin-compose-pizzeria\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\10\\classes.dex
+base.3=C\:\\Users\\Ruben\\Desktop\\destrozo-pizzeria\\kotlin-compose-pizzeria\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\13\\classes.dex
+base.4=C\:\\Users\\Ruben\\Desktop\\destrozo-pizzeria\\kotlin-compose-pizzeria\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\2\\classes.dex
+base.5=C\:\\Users\\Ruben\\Desktop\\destrozo-pizzeria\\kotlin-compose-pizzeria\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\3\\classes.dex
+base.6=C\:\\Users\\Ruben\\Desktop\\destrozo-pizzeria\\kotlin-compose-pizzeria\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\4\\classes.dex
+base.7=C\:\\Users\\Ruben\\Desktop\\destrozo-pizzeria\\kotlin-compose-pizzeria\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\6\\classes.dex
+base.8=C\:\\Users\\Ruben\\Desktop\\destrozo-pizzeria\\kotlin-compose-pizzeria\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\7\\classes.dex
+base.9=C\:\\Users\\Ruben\\Desktop\\destrozo-pizzeria\\kotlin-compose-pizzeria\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\8\\classes.dex
 path.0=classes.dex
 path.1=0/classes.dex
 path.10=classes2.dex

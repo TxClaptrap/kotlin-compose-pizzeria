@@ -89,6 +89,7 @@ drawable cherry
 drawable cola
 drawable dripping
 drawable drippingicon
+drawable drippinglogo
 drawable fuze
 drawable ic_call_answer
 drawable ic_call_answer_low
@@ -118,6 +119,7 @@ drawable pepe
 drawable picante
 drawable quantum
 drawable quesos4
+drawable tdp
 drawable vegetariana
 drawable water
 drawable zero

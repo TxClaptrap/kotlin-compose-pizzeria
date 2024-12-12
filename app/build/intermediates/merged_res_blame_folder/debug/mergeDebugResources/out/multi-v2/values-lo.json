@@ -4,24 +4,24 @@
             "outputFile": "com.example.compose_pizzeria.app-mergeDebugResources-57:/values-lo/values-lo.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Zi0n\\.gradle\\caches\\transforms-4\\118785ad3b39b54ec5aa0872b542733a\\transformed\\foundation-release\\res\\values-lo\\values-lo.xml",
+                    "source": "C:\\Users\\Ruben\\.gradle\\caches\\transforms-4\\d5f986b108615b6845b8143fc2c37a37\\transformed\\core-1.13.1\\res\\values-lo\\values-lo.xml",
                     "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,141",
-                        "endColumns": "85,84",
-                        "endOffsets": "136,221"
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,151,254,353,451,552,650,761",
+                        "endColumns": "95,102,98,97,100,97,110,100",
+                        "endOffsets": "146,249,348,446,547,645,756,857"
                     },
                     "to": {
-                        "startLines": "84,85",
-                        "startColumns": "4,4",
-                        "startOffsets": "8439,8525",
-                        "endColumns": "85,84",
-                        "endOffsets": "8520,8605"
+                        "startLines": "2,3,4,5,6,7,8,80",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,201,304,403,501,602,700,8073",
+                        "endColumns": "95,102,98,97,100,97,110,100",
+                        "endOffsets": "196,299,398,496,597,695,806,8169"
                     }
                 },
                 {
-                    "source": "C:\\Users\\Zi0n\\.gradle\\caches\\transforms-4\\1bbf1944f9f4b693d1e0170705cb6383\\transformed\\material3-release\\res\\values-lo\\values-lo.xml",
+                    "source": "C:\\Users\\Ruben\\.gradle\\caches\\transforms-4\\1bbf1944f9f4b693d1e0170705cb6383\\transformed\\material3-release\\res\\values-lo\\values-lo.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -38,7 +38,24 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Zi0n\\.gradle\\caches\\transforms-4\\0630271bf840d172352409ab6a824654\\transformed\\ui-release\\res\\values-lo\\values-lo.xml",
+                    "source": "C:\\Users\\Ruben\\.gradle\\caches\\transforms-4\\118785ad3b39b54ec5aa0872b542733a\\transformed\\foundation-release\\res\\values-lo\\values-lo.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,141",
+                        "endColumns": "85,84",
+                        "endOffsets": "136,221"
+                    },
+                    "to": {
+                        "startLines": "84,85",
+                        "startColumns": "4,4",
+                        "startOffsets": "8439,8525",
+                        "endColumns": "85,84",
+                        "endOffsets": "8520,8605"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Ruben\\.gradle\\caches\\transforms-4\\0630271bf840d172352409ab6a824654\\transformed\\ui-release\\res\\values-lo\\values-lo.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -52,23 +69,6 @@
                         "startOffsets": "811,901,978,1087,1185,1274,1363,7435,7521,7604,7684,7768,7842,7923,7998,8174,8252,8318",
                         "endColumns": "89,76,108,97,88,88,89,85,82,79,83,73,80,74,74,77,65,120",
                         "endOffsets": "896,973,1082,1180,1269,1358,1448,7516,7599,7679,7763,7837,7918,7993,8068,8247,8313,8434"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Zi0n\\.gradle\\caches\\transforms-4\\d5f986b108615b6845b8143fc2c37a37\\transformed\\core-1.13.1\\res\\values-lo\\values-lo.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,151,254,353,451,552,650,761",
-                        "endColumns": "95,102,98,97,100,97,110,100",
-                        "endOffsets": "146,249,348,446,547,645,756,857"
-                    },
-                    "to": {
-                        "startLines": "2,3,4,5,6,7,8,80",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,201,304,403,501,602,700,8073",
-                        "endColumns": "95,102,98,97,100,97,110,100",
-                        "endOffsets": "196,299,398,496,597,695,806,8169"
                     }
                 }
             ]

@@ -33,10 +33,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.navigation.NavController
-import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.compose_pizzeria.R
-import com.example.compose_pizzeria.data.ErrorMensaje
 import com.example.compose_pizzeria.ui.navigation.Screen
 import modelo.ClienteDTO
 
@@ -51,7 +49,6 @@ fun Campo(
     var esconder by remember { mutableStateOf(true) } // Por defecto, la contraseña está oculta
 
     OutlinedTextField(
-        maxLines = 1,
         keyboardOptions = KeyboardOptions(keyboardType = teclado),
         modifier = Modifier
             .fillMaxSize()
@@ -154,7 +151,7 @@ fun Registro(viewModel: RegistroViewModel, navController: NavController) {
             )
             Button(
                 onClick = { viewModel.onRegistrarClick()
-                    navController.navigate(Screen.Login.route)}, modifier = Modifier
+                    navController.navigate(Screen.Home.route)}, modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = 40.dp, bottom = 40.dp), enabled = registroActivo
             ) { Text("Registar") }

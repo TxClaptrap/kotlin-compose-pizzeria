@@ -907,7 +907,7 @@ public class LibrariesForLibsInPluginsBlock extends AbstractExternalDependencyFa
         public Provider<String> getMaterialVersion() { return getVersion("materialVersion"); }
 
         /**
-         * Version alias <b>navigationCompose</b> with value <b>2.8.3</b>
+         * Version alias <b>navigationCompose</b> with value <b>2.8.4</b>
          * <p>
          * If the version is a rich version and cannot be represented as a
          * single version string, an empty string is returned.

@@ -18,9 +18,7 @@ class Pizzeria : ComponentActivity() {
         setContent {
             DrippingPizzaTheme {
                 AppNavigation(rememberNavController())
-
             }
-
         }
     }
 }

@@ -20,7 +20,6 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.compose_pizzeria.R
 import com.example.compose_pizzeria.data.ClienteLoginDTO
@@ -80,5 +79,5 @@ fun Login(viewModel: LoginViewModel, navController: NavController) {
 @Preview(showBackground = true)
 @Composable
 fun LoginPreview() {
-    Login(viewModel = LoginViewModel(null), rememberNavController())
+    Login(LoginViewModel(null), rememberNavController())
 }

@@ -56,6 +56,10 @@
         "source": "com.example.compose_pizzeria.app-main-61:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
+        "merged": "com.example.compose_pizzeria.app-debug-59:/drawable_tdp.png.flat",
+        "source": "com.example.compose_pizzeria.app-main-61:/drawable/tdp.png"
+    },
+    {
         "merged": "com.example.compose_pizzeria.app-debug-59:/drawable_agua.png.flat",
         "source": "com.example.compose_pizzeria.app-main-61:/drawable/agua.png"
     },
@@ -118,6 +122,10 @@
     {
         "merged": "com.example.compose_pizzeria.app-debug-59:/xml_data_extraction_rules.xml.flat",
         "source": "com.example.compose_pizzeria.app-main-61:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "com.example.compose_pizzeria.app-debug-59:/drawable_drippinglogo.png.flat",
+        "source": "com.example.compose_pizzeria.app-main-61:/drawable/drippinglogo.png"
     },
     {
         "merged": "com.example.compose_pizzeria.app-debug-59:/mipmap-xxhdpi_ic_launcher.webp.flat",

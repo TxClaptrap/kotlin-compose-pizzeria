@@ -21,6 +21,7 @@ drawable cherry
 drawable cola
 drawable dripping
 drawable drippingicon
+drawable drippinglogo
 drawable fuze
 drawable ic_launcher_background
 drawable ic_launcher_foreground
@@ -31,6 +32,7 @@ drawable pepe
 drawable picante
 drawable quantum
 drawable quesos4
+drawable tdp
 drawable vegetariana
 drawable water
 drawable zero
