@@ -1,8 +1,9 @@
 package com.example.compose_pizzeria.ui.registro
 
-import RegistroViewModel
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -14,11 +15,13 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material3.Button
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -36,7 +39,8 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.compose_pizzeria.R
 import com.example.compose_pizzeria.ui.navigation.Screen
-import modelo.ClienteDTO
+import com.example.compose_pizzeria.data.modelo.ClienteDTO
+import com.example.compose_pizzeria.data.repositories.ClienteRepository
 
 @Composable
 fun Campo(
@@ -89,6 +93,7 @@ fun Registro(viewModel: RegistroViewModel, navController: NavController) {
     val cliente: ClienteDTO by viewModel.cliente.observeAsState(ClienteDTO())
     val registroActivo: Boolean by viewModel.registroActivo.observeAsState(false)
     val errorMensaje: ErrorMensaje? by viewModel.errorMensaje.observeAsState(null)
+    val isLoading: Boolean by viewModel.isLoading.observeAsState(false)
 
     LazyColumn(
         modifier = Modifier
@@ -149,18 +154,25 @@ fun Registro(viewModel: RegistroViewModel, navController: NavController) {
                 cliente.password,
                 errorMensaje?.password
             )
+            Row (Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
+                if (isLoading) {
+                CircularProgressIndicator(modifier = Modifier.padding(50.dp))
+                }
+            }
             Button(
                 onClick = { viewModel.onRegistrarClick()
                     navController.navigate(Screen.Home.route)}, modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = 40.dp, bottom = 40.dp), enabled = registroActivo
+                    .padding(top = 20.dp), enabled = registroActivo
             ) { Text("Registar") }
+            TextButton(
+                onClick = { navController.navigate(Screen.Login.route) },
+                modifier = Modifier
+                    .fillMaxWidth()
+            ) {
+                Text("Inicia sesión aquí")
+            }
         }
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun RegistroPreview() {
-    Registro(viewModel = RegistroViewModel(null), rememberNavController())
-}

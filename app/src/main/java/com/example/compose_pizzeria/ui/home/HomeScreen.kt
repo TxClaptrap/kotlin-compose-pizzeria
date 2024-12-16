@@ -3,6 +3,7 @@ package com.example.compose_pizzeria.ui.home
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -22,8 +23,10 @@ import androidx.compose.material.Icon
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AddShoppingCart
 import androidx.compose.material.icons.filled.ShoppingCart
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox
+import androidx.compose.material3.Button
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.DrawerState
 import androidx.compose.material3.DrawerValue
@@ -40,11 +43,13 @@ import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.rememberDrawerState
+
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
@@ -60,14 +65,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.example.compose_pizzeria.R
-import com.example.compose_pizzeria.data.ProductoDTO
-import com.example.compose_pizzeria.data.TIPO_PRODUCTO
+import com.example.compose_pizzeria.data.modelo.ProductoDTO
+import com.example.compose_pizzeria.data.modelo.TIPO_PRODUCTO
 import com.example.compose_pizzeria.ui.navigation.Screen
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
-import modelo.SIZE
+import com.example.compose_pizzeria.data.modelo.SIZE
 import java.util.Locale
 
 @Composable
@@ -78,7 +82,7 @@ fun HomeScreen(navController: NavController, viewModel: HomeViewModel) {
     ModalNavigationDrawer(
         drawerState = drawerState,
         drawerContent = {
-            Drawer(navController, drawerState, scope, listOf(Screen.Login))
+            Drawer(navController, drawerState, scope, listOf(Screen.Home))
         }) {
         Scaffold(
             topBar = { TopBar(drawerState, scope, totalProductos) },
@@ -144,7 +148,7 @@ fun TopBar(drawerState: DrawerState, scope: CoroutineScope, totalProductos: Int)
                 }
             }
             //E
-        }, colors = TopAppBarDefaults.smallTopAppBarColors(
+        }, colors = TopAppBarDefaults.topAppBarColors(
             containerColor = MaterialTheme.colorScheme.primaryContainer.copy(
                 alpha = 1f
             )
@@ -158,6 +162,41 @@ fun TopBar(drawerState: DrawerState, scope: CoroutineScope, totalProductos: Int)
 }
 
 @Composable
+fun SimpleAlertDialog(navController: NavController) {
+// Estado para controlar si se muestra el diálogo
+    var showDialog by remember { mutableStateOf(false) }
+// Botón que activa el diálogo
+    Button(onClick = { showDialog = true }) {
+        Text("Cerrar sesion")
+    }
+// Muestra el diálogo si showDialog está a true
+    if (showDialog) {
+        AlertDialog(
+            onDismissRequest = { showDialog = false },
+            title = {
+                Text(text = "Cierre de sesión")
+            },
+            text = {
+                Text("¿Estás seguro de que quieres cerrar sesión?")
+            },
+            confirmButton = {
+                TextButton(onClick = {
+                    showDialog = false
+                    navController.navigate(Screen.Login.route)
+                }) {
+                    Text("Sí")
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showDialog = false }) {
+                    Text("No")
+                }
+            }
+        )
+    }
+}
+
+@Composable
 fun Drawer(
     navController: NavController,
     drawerState: DrawerState,
@@ -165,10 +204,16 @@ fun Drawer(
     items: List<Screen>
 ) {
     ModalDrawerSheet(modifier = Modifier.width(250.dp)) {
-        Column {
+        Column(
+            modifier = Modifier
+                .fillMaxSize(),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
             items.forEach { screen ->
                 DrawerItem(navController, screen)
                 scope.launch { drawerState.close() }
+                SimpleAlertDialog(navController)
             }
         }
     }
@@ -177,13 +222,21 @@ fun Drawer(
 @Composable
 fun DrawerItem(navController: NavController, screen: Screen) {
     NavigationDrawerItem(
-        label = { Text("Cerrar sesión") },
+        label = {
+            Text(
+                text = "Productos",
+                modifier = Modifier.fillMaxWidth(), // Asegura que ocupe todo el ancho
+                textAlign = TextAlign.Center // Centra el texto horizontalmente
+            )
+        },
         selected = false,
         onClick = {
             navController.navigate(screen.route) { launchSingleTop = true }
         }
     )
 }
+
+
 
 // Pantalla principal que muestra productos categorizados y permite agregar al carrito.
 @OptIn(ExperimentalMaterial3Api::class)
@@ -245,7 +298,7 @@ fun Home(viewModel: HomeViewModel, navController: NavController, padding: Modifi
                     }
                 }
                 //E
-            }, colors = TopAppBarDefaults.smallTopAppBarColors(
+            }, colors = TopAppBarDefaults.topAppBarColors(
                 containerColor = MaterialTheme.colorScheme.primaryContainer.copy(
                     alpha = 1f
                 )
@@ -293,7 +346,7 @@ fun Home(viewModel: HomeViewModel, navController: NavController, padding: Modifi
                 }
             }
             // Listado de pizzas.
-            items(listaProductoDTO.filter { it.tipo == TIPO_PRODUCTO.PIZZA }) { pizza ->
+            items(listaProductoDTO.filter { it.tipo == TIPO_PRODUCTO.pizza }) { pizza ->
                 ProductoItem(pizza,
                     viewModel.obtenerImagen(pizza.nombre),
                     onAddToBasket = { productoDTO, size, i ->
@@ -332,7 +385,7 @@ fun Home(viewModel: HomeViewModel, navController: NavController, padding: Modifi
                 }
             }
             // Listado de pastas.
-            items(listaProductoDTO.filter { it.tipo == TIPO_PRODUCTO.PASTA }) { pasta ->
+            items(listaProductoDTO.filter { it.tipo == TIPO_PRODUCTO.pasta }) { pasta ->
                 ProductoItem(pasta,
                     viewModel.obtenerImagen(pasta.nombre),
                     onAddToBasket = { productoDTO, size, i ->
@@ -371,7 +424,7 @@ fun Home(viewModel: HomeViewModel, navController: NavController, padding: Modifi
                 }
             }
             // Listado de bebidas.
-            items(listaProductoDTO.filter { it.tipo == TIPO_PRODUCTO.BEBIDA }) { bebida ->
+            items(listaProductoDTO.filter { it.tipo == TIPO_PRODUCTO.bebida }) { bebida ->
                 ProductoItem(bebida,
                     viewModel.obtenerImagen(bebida.nombre),
                     onAddToBasket = { productoDTO, size, i ->
@@ -425,7 +478,7 @@ fun ProductoItem(
                     .padding(0.dp, 20.dp, 20.dp, 0.dp)
             ) {
                 // Información del producto.
-                if (productoDTO.tipo == TIPO_PRODUCTO.BEBIDA) {
+                if (productoDTO.tipo == TIPO_PRODUCTO.bebida) {
                     Text(
                         productoDTO.nombre, fontSize = 18.sp, color = Color(247, 146, 22)
                     )
@@ -436,7 +489,7 @@ fun ProductoItem(
                     Text(
                         productoDTO.nombre, fontSize = 14.sp, color = Color(247, 146, 22)
                     )
-                    productoDTO.listaIngredientes?.joinToString { it.nombre }
+                    productoDTO.ingredientes?.joinToString { it.nombre }
                         ?.let { Text("$it.", fontSize = 10.sp) }
 
                 }
@@ -451,7 +504,7 @@ fun ProductoItem(
                     .padding(bottom = 10.dp)
             ) {
                 // Selector de tamaño para productos distintos de pastas.
-                if (productoDTO.tipo != TIPO_PRODUCTO.PASTA) {
+                if (productoDTO.tipo != TIPO_PRODUCTO.pasta) {
                     TextButton(onClick = { desplegado = !desplegado }) {
                         Text(size ?: "Tamaño")
                     }
@@ -506,7 +559,7 @@ fun ProductoItem(
                 TextButton(
                     onClick = {
                         when (productoDTO.tipo) {
-                            TIPO_PRODUCTO.PIZZA, TIPO_PRODUCTO.BEBIDA -> if (seleccionar == null) {
+                            TIPO_PRODUCTO.pizza, TIPO_PRODUCTO.bebida -> if (seleccionar == null) {
                                 Toast.makeText(
                                     context, "Por favor, selecciona un tamaño.", Toast.LENGTH_SHORT
                                 ).show()
@@ -519,7 +572,7 @@ fun ProductoItem(
                                 ).show()
                             }
 
-                            TIPO_PRODUCTO.PASTA -> {
+                            TIPO_PRODUCTO.pasta -> {
                                 onAddToBasket(productoDTO, null, cantidad)
                                 Toast.makeText(
                                     context,
@@ -533,7 +586,7 @@ fun ProductoItem(
                         .shadow(elevation = 5.dp, shape = RoundedCornerShape(16.dp))
                         .clip(RoundedCornerShape(16.dp))
                         .background(
-                            if (seleccionar != null || productoDTO.tipo == TIPO_PRODUCTO.PASTA) {
+                            if (seleccionar != null || productoDTO.tipo == TIPO_PRODUCTO.pasta) {
                                 Color(252, 170, 68) // Color cuando está habilitado
                             } else {
                                 Color(255, 200, 133) // Color cuando está deshabilitado
@@ -561,8 +614,8 @@ fun ProductoItem(
 @Preview(showBackground = true)
 @Composable
 fun Preview() {
-    HomeScreen(
+    /*HomeScreen(
         rememberNavController(),
         HomeViewModel(null)
-    )
+    )*/
 }

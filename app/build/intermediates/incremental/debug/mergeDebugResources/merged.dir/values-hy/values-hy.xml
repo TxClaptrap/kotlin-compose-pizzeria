@@ -53,6 +53,7 @@
     <string msgid="7617233117134790350" name="m3c_dialog">"Երկխոսության պատուհան"</string>
     <string msgid="3177828188723359358" name="m3c_dropdown_menu_collapsed">"Ծալված է"</string>
     <string msgid="2360841780724299882" name="m3c_dropdown_menu_expanded">"Ծավալված է"</string>
+    <string msgid="8687821690726149911" name="m3c_dropdown_menu_toggle">"Բացել/փակել իջնող ցանկը"</string>
     <string msgid="6152806324422087846" name="m3c_search_bar_search">"Որոնում"</string>
     <string msgid="6152755701819882931" name="m3c_snackbar_dismiss">"Փակել"</string>
     <string msgid="7655536806087401899" name="m3c_suggestions_available">"Առաջարկները հասանելի են ստորև"</string>

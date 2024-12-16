@@ -53,6 +53,7 @@
     <string msgid="7617233117134790350" name="m3c_dialog">"ਡਾਇਲੌਗ"</string>
     <string msgid="3177828188723359358" name="m3c_dropdown_menu_collapsed">"ਸਮੇਟਿਆ ਗਿਆ"</string>
     <string msgid="2360841780724299882" name="m3c_dropdown_menu_expanded">"ਵਿਸਤਾਰ ਕੀਤਾ ਗਿਆ"</string>
+    <string msgid="8687821690726149911" name="m3c_dropdown_menu_toggle">"ਡ੍ਰੌਪ-ਡਾਊਨ ਮੀਨੂ ਨੂੰ ਟੌਗਲ ਕਰੋ"</string>
     <string msgid="6152806324422087846" name="m3c_search_bar_search">"ਖੋਜੋ"</string>
     <string msgid="6152755701819882931" name="m3c_snackbar_dismiss">"ਖਾਰਜ ਕਰੋ"</string>
     <string msgid="7655536806087401899" name="m3c_suggestions_available">"ਸੁਝਾਅ ਹੇਠਾਂ ਹਨ"</string>

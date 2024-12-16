@@ -53,6 +53,7 @@
     <string msgid="7617233117134790350" name="m3c_dialog">"డైలాగ్"</string>
     <string msgid="3177828188723359358" name="m3c_dropdown_menu_collapsed">"కుదించబడింది"</string>
     <string msgid="2360841780724299882" name="m3c_dropdown_menu_expanded">"విస్తరించబడింది"</string>
+    <string msgid="8687821690726149911" name="m3c_dropdown_menu_toggle">"డ్రాప్‌డౌన్ మెనూను టోగుల్ చేయండి"</string>
     <string msgid="6152806324422087846" name="m3c_search_bar_search">"సెర్చ్ చేయండి"</string>
     <string msgid="6152755701819882931" name="m3c_snackbar_dismiss">"విస్మరించండి"</string>
     <string msgid="7655536806087401899" name="m3c_suggestions_available">"సూచనలు దిగువున ఉన్నాయి"</string>

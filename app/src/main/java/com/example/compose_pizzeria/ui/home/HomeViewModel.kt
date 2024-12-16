@@ -3,14 +3,19 @@ package com.example.compose_pizzeria.ui.home
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.compose_pizzeria.R
-import com.example.compose_pizzeria.data.ProductoDTO
-import com.example.compose_pizzeria.data.TIPO_PRODUCTO
-import modelo.IngredienteDTO
-import modelo.LineaPedidoDTO
-import modelo.SIZE
+import com.example.compose_pizzeria.data.modelo.ProductoDTO
+import com.example.compose_pizzeria.data.modelo.TIPO_PRODUCTO
+import com.example.compose_pizzeria.data.modelo.IngredienteDTO
+import com.example.compose_pizzeria.data.modelo.LineaPedidoDTO
+import com.example.compose_pizzeria.data.modelo.SIZE
+import com.example.compose_pizzeria.data.repositories.ProductoRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
-class HomeViewModel(clienteRepository: Any?) : ViewModel() {
+class HomeViewModel(private val productoRepository: ProductoRepository) : ViewModel() {
     /*
     //private val lista: List<ProductoDTO> = listOf()
     //val productos = MutableLiveData(lista)
@@ -23,7 +28,19 @@ class HomeViewModel(clienteRepository: Any?) : ViewModel() {
     val numeroProductos: MutableLiveData<Int> = MutableLiveData(0)
 
     init {
-        cargarProductos()
+        val listaProductosActual = listaProductos.value
+        if (listaProductosActual.isNullOrEmpty()) {
+            viewModelScope.launch {
+                val result = productoRepository.obtenerProductos()
+                withContext(Dispatchers.Main) {
+                    when (result.isSuccess) {
+                        true -> listaProductos.value = result.getOrThrow()
+                        false -> Log.d("HOME", "Error:$result")
+                    }
+                }
+            }
+        }
+        Log.d("PRODUCTOS", listaProductos.value.toString())
     }
 
     fun cargarProductos() {
@@ -69,26 +86,26 @@ class HomeViewModel(clienteRepository: Any?) : ViewModel() {
         listaProductos.value = listOf(
 
             // Pizzas
-            ProductoDTO(TIPO_PRODUCTO.PIZZA, 1, "Alucinógena", 10.0, null, ingredientesCarbonaraPizza),
-            ProductoDTO(TIPO_PRODUCTO.PIZZA,2, "Radioactiva", 9.5, null, ingredientes4Quesos),
-            ProductoDTO(TIPO_PRODUCTO.PIZZA,3, "Sarpullida", 8.5, null, ingredientesMasPepe),
-            ProductoDTO(TIPO_PRODUCTO.PIZZA,4, "Alfalfosa", 8.0, null, ingredientesVegetariana),
-            ProductoDTO(TIPO_PRODUCTO.PIZZA,5, "Mixta", 9.0, null, ingredientesMixta),
-            ProductoDTO(TIPO_PRODUCTO.PIZZA,6, "Beeeee!", 10.5, null, ingredientesCabra),
-            ProductoDTO(TIPO_PRODUCTO.PIZZA,7, "Sangrienta", 11.0, null, ingredientesBBQ),
-            ProductoDTO(TIPO_PRODUCTO.PIZZA,8, "Aberrante", 8.5, null, ingredientesAberrante),
+            ProductoDTO(TIPO_PRODUCTO.pizza, 1, "Alucinógena", 10.0, null, ingredientesCarbonaraPizza),
+            ProductoDTO(TIPO_PRODUCTO.pizza,2, "Radioactiva", 9.5, null, ingredientes4Quesos),
+            ProductoDTO(TIPO_PRODUCTO.pizza,3, "Sarpullida", 8.5, null, ingredientesMasPepe),
+            ProductoDTO(TIPO_PRODUCTO.pizza,4, "Alfalfosa", 8.0, null, ingredientesVegetariana),
+            ProductoDTO(TIPO_PRODUCTO.pizza,5, "Mixta", 9.0, null, ingredientesMixta),
+            ProductoDTO(TIPO_PRODUCTO.pizza,6, "Beeeee!", 10.5, null, ingredientesCabra),
+            ProductoDTO(TIPO_PRODUCTO.pizza,7, "Sangrienta", 11.0, null, ingredientesBBQ),
+            ProductoDTO(TIPO_PRODUCTO.pizza,8, "Aberrante", 8.5, null, ingredientesAberrante),
 
             // Pastas
-            ProductoDTO(TIPO_PRODUCTO.PASTA,13, "Spaghetti Carbonara", 8.0, null, ingredientesCarbonaraPasta),
-            ProductoDTO(TIPO_PRODUCTO.PASTA,14, "Spaghetti Bolognese", 7.5, null, ingredientesBolognesePasta),
-            ProductoDTO(TIPO_PRODUCTO.PASTA,15, "Penne 4 Formaggi", 9.0, null, ingredientes4QuesosPasta),
-            ProductoDTO(TIPO_PRODUCTO.PASTA,16, "Farfalle Birichine", 8.5, null, ingredientesPicantePasta),
+            ProductoDTO(TIPO_PRODUCTO.pasta,13, "Spaghetti Carbonara", 8.0, null, ingredientesCarbonaraPasta),
+            ProductoDTO(TIPO_PRODUCTO.pasta,14, "Spaghetti Bolognese", 7.5, null, ingredientesBolognesePasta),
+            ProductoDTO(TIPO_PRODUCTO.pasta,15, "Penne 4 Formaggi", 9.0, null, ingredientes4QuesosPasta),
+            ProductoDTO(TIPO_PRODUCTO.pasta,16, "Farfalle Birichine", 8.5, null, ingredientesPicantePasta),
 
             // Bebidas
-            ProductoDTO(TIPO_PRODUCTO.BEBIDA,9, "Agua Potable Pura", 1.5, null, emptyList()),
-            ProductoDTO(TIPO_PRODUCTO.BEBIDA,10, "Nuka-Cola", 2.0, null, emptyList()),
-            ProductoDTO(TIPO_PRODUCTO.BEBIDA,11, "Nuka-Cherry", 2.0, null, emptyList()),
-            ProductoDTO(TIPO_PRODUCTO.BEBIDA,12, "Nuka-Cola Quantum", 3.0, null, emptyList())
+            ProductoDTO(TIPO_PRODUCTO.bebida,9, "Agua Potable Pura", 1.5, null, emptyList()),
+            ProductoDTO(TIPO_PRODUCTO.bebida,10, "Nuka-Cola", 2.0, null, emptyList()),
+            ProductoDTO(TIPO_PRODUCTO.bebida,11, "Nuka-Cherry", 2.0, null, emptyList()),
+            ProductoDTO(TIPO_PRODUCTO.bebida,12, "Nuka-Cola Quantum", 3.0, null, emptyList())
         )
     }
 

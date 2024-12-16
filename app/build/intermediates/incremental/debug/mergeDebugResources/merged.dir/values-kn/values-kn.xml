@@ -53,6 +53,7 @@
     <string msgid="7617233117134790350" name="m3c_dialog">"ಡೈಲಾಗ್"</string>
     <string msgid="3177828188723359358" name="m3c_dropdown_menu_collapsed">"ಕುಗ್ಗಿಸಲಾಗಿದೆ"</string>
     <string msgid="2360841780724299882" name="m3c_dropdown_menu_expanded">"ವಿಸ್ತರಿಸಲಾಗಿದೆ"</string>
+    <string msgid="8687821690726149911" name="m3c_dropdown_menu_toggle">"ಡ್ರಾಪ್‌ಡೌನ್ ಮೆನುವನ್ನು ಟಾಗಲ್ ಮಾಡಿ"</string>
     <string msgid="6152806324422087846" name="m3c_search_bar_search">"ಹುಡುಕಿ"</string>
     <string msgid="6152755701819882931" name="m3c_snackbar_dismiss">"ವಜಾಗೊಳಿಸಿ"</string>
     <string msgid="7655536806087401899" name="m3c_suggestions_available">"ಸಲಹೆಗಳನ್ನು ಕೆಳಗೆ ನೀಡಲಾಗಿದೆ"</string>

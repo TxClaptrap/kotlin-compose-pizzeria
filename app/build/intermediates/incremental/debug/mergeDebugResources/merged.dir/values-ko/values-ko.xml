@@ -53,6 +53,7 @@
     <string msgid="7617233117134790350" name="m3c_dialog">"대화상자"</string>
     <string msgid="3177828188723359358" name="m3c_dropdown_menu_collapsed">"접힘"</string>
     <string msgid="2360841780724299882" name="m3c_dropdown_menu_expanded">"펼침"</string>
+    <string msgid="8687821690726149911" name="m3c_dropdown_menu_toggle">"전환 드롭다운 메뉴"</string>
     <string msgid="6152806324422087846" name="m3c_search_bar_search">"검색"</string>
     <string msgid="6152755701819882931" name="m3c_snackbar_dismiss">"닫기"</string>
     <string msgid="7655536806087401899" name="m3c_suggestions_available">"아래의 추천 검색어"</string>
