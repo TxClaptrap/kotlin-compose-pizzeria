@@ -28,6 +28,7 @@ import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.Button
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DrawerState
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.DropdownMenuItem
@@ -244,6 +245,7 @@ fun DrawerItem(navController: NavController, screen: Screen) {
 fun Home(viewModel: HomeViewModel, navController: NavController, padding: Modifier) {
     val numeroProductos: Int by viewModel.numeroProductos.observeAsState(0)
     val listaProductoDTO: List<ProductoDTO> by viewModel.listaProductos.observeAsState(listOf())
+    val isLoading: Boolean by viewModel.isLoading.observeAsState(false)
 
     // Estructura principal con barra superior y lista de productos.
     Scaffold(topBar = {
@@ -345,6 +347,13 @@ fun Home(viewModel: HomeViewModel, navController: NavController, padding: Modifi
                     }
                 }
             }
+            item {
+                Row (Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
+                    if (isLoading) {
+                        CircularProgressIndicator(modifier = Modifier.padding(50.dp))
+                    }
+                }
+            }
             // Listado de pizzas.
             items(listaProductoDTO.filter { it.tipo == TIPO_PRODUCTO.pizza }) { pizza ->
                 ProductoItem(pizza,
@@ -381,6 +390,13 @@ fun Home(viewModel: HomeViewModel, navController: NavController, padding: Modifi
                             style = MaterialTheme.typography.titleLarge,
                             textAlign = TextAlign.Center
                         )
+                    }
+                }
+            }
+            item {
+                Row (Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
+                    if (isLoading) {
+                        CircularProgressIndicator(modifier = Modifier.padding(50.dp))
                     }
                 }
             }
@@ -423,6 +439,13 @@ fun Home(viewModel: HomeViewModel, navController: NavController, padding: Modifi
                     }
                 }
             }
+            item {
+                Row (Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
+                    if (isLoading) {
+                        CircularProgressIndicator(modifier = Modifier.padding(50.dp))
+                    }
+                }
+            }
             // Listado de bebidas.
             items(listaProductoDTO.filter { it.tipo == TIPO_PRODUCTO.bebida }) { bebida ->
                 ProductoItem(bebida,
@@ -431,7 +454,8 @@ fun Home(viewModel: HomeViewModel, navController: NavController, padding: Modifi
                         viewModel.onAddToBasket(
                             productoDTO, size, i
                         )
-                    })
+                    }
+                )
             }
         }
     }

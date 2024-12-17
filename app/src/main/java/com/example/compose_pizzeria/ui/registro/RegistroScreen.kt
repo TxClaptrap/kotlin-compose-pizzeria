@@ -1,5 +1,6 @@
 package com.example.compose_pizzeria.ui.registro
 
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -33,6 +34,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.navigation.NavController
@@ -94,6 +96,7 @@ fun Registro(viewModel: RegistroViewModel, navController: NavController) {
     val registroActivo: Boolean by viewModel.registroActivo.observeAsState(false)
     val errorMensaje: ErrorMensaje? by viewModel.errorMensaje.observeAsState(null)
     val isLoading: Boolean by viewModel.isLoading.observeAsState(false)
+    val texto = LocalContext.current
 
     LazyColumn(
         modifier = Modifier
@@ -154,17 +157,29 @@ fun Registro(viewModel: RegistroViewModel, navController: NavController) {
                 cliente.password,
                 errorMensaje?.password
             )
-            Row (Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
                 if (isLoading) {
-                CircularProgressIndicator(modifier = Modifier.padding(50.dp))
+                    CircularProgressIndicator(modifier = Modifier.padding(50.dp))
                 }
             }
             Button(
-                onClick = { viewModel.onRegistrarClick()
-                    navController.navigate(Screen.Home.route)}, modifier = Modifier
+                onClick = {
+                    viewModel.onRegistrarClick { respuesta ->
+                        if (respuesta) {
+                            Toast.makeText(texto, "Registro completado. Bienvenido!", Toast.LENGTH_SHORT).show()
+                            navController.navigate(Screen.Home.route)
+                        } else {
+                            Toast.makeText(texto, "Ya existe un usuario registrado con ese email.", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }, modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = 20.dp), enabled = registroActivo
-            ) { Text("Registar") }
+            ) {
+
+
+                Text("Registar")
+            }
             TextButton(
                 onClick = { navController.navigate(Screen.Login.route) },
                 modifier = Modifier

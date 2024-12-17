@@ -25,6 +25,7 @@ drawable drippinglogo
 drawable fuze
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable margarita
 drawable mixta
 drawable nuka
 drawable pasta4quesos

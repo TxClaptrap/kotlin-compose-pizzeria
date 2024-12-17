@@ -1,4 +1,4 @@
-#Mon Dec 16 13:55:29 CET 2024
+#Tue Dec 17 09:53:49 CET 2024
 base.0=C\:\\Users\\Ruben\\Desktop\\destrozo-pizzeria\\kotlin-compose-pizzeria\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=C\:\\Users\\Ruben\\Desktop\\destrozo-pizzeria\\kotlin-compose-pizzeria\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
 base.10=C\:\\Users\\Ruben\\Desktop\\destrozo-pizzeria\\kotlin-compose-pizzeria\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes3.dex

@@ -26,16 +26,24 @@ class HomeViewModel(private val productoRepository: ProductoRepository) : ViewMo
 
     var listaProductos = MutableLiveData<List<ProductoDTO>>()
     val numeroProductos: MutableLiveData<Int> = MutableLiveData(0)
+    var isLoading = MutableLiveData(false)
 
     init {
+        isLoading.value = true
         val listaProductosActual = listaProductos.value
         if (listaProductosActual.isNullOrEmpty()) {
             viewModelScope.launch {
                 val result = productoRepository.obtenerProductos()
                 withContext(Dispatchers.Main) {
                     when (result.isSuccess) {
-                        true -> listaProductos.value = result.getOrThrow()
-                        false -> Log.d("HOME", "Error:$result")
+                        true -> {
+                            listaProductos.value = result.getOrThrow()
+                            isLoading.value = false
+                        }
+                        false -> {
+                            isLoading.value = false
+                            Log.d("HOME", "Error:$result")
+                        }
                     }
                 }
             }
@@ -129,6 +137,18 @@ class HomeViewModel(private val productoRepository: ProductoRepository) : ViewMo
         "Nuka-Cola" -> R.drawable.nuka
         "Nuka-Cherry" -> R.drawable.cherry
         "Nuka-Cola Quantum" -> R.drawable.quantum
+
+        //Asignación de imágenes (productos de la api)
+        "Pepperoni" -> R.drawable.pepe
+        "Cuatro Quesos" -> R.drawable.quesos4
+        "Margarita" -> R.drawable.margarita
+
+        "Espagueti" -> R.drawable.bolognese
+        "Pasta Alfredo" -> R.drawable.picante
+
+        "Agua Mineral" -> R.drawable.water
+        "Coca-Cola" -> R.drawable.nuka
+        "Fanta Naranja" -> R.drawable.cherry
 
         else -> R.drawable.dripping
     }

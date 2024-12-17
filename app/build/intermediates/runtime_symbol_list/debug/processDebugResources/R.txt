@@ -98,6 +98,7 @@ int drawable ic_call_decline 0x7f050012
 int drawable ic_call_decline_low 0x7f050013
 int drawable ic_launcher_background 0x7f050014
 int drawable ic_launcher_foreground 0x7f050015
+int drawable margarita 0x7f05002e
 int drawable mixta 0x7f050016
 int drawable notification_action_background 0x7f050017
 int drawable notification_bg 0x7f050018

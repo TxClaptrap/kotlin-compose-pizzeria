@@ -99,6 +99,7 @@ drawable ic_call_decline
 drawable ic_call_decline_low
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable margarita
 drawable mixta
 drawable notification_action_background
 drawable notification_bg

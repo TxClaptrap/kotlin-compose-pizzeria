@@ -48,7 +48,7 @@ class RegistroViewModel(private val clienteRepository: ClienteRepository) : View
         this.cliente.value = newCliente
     }
 
-    fun onRegistrarClick() {
+    fun onRegistrarClick(respuesta: (Boolean) -> Unit) {
         isLoading.value = true
         val clienteActual = cliente.value
         if (clienteActual != null) {
@@ -57,10 +57,12 @@ class RegistroViewModel(private val clienteRepository: ClienteRepository) : View
                 withContext(Dispatchers.Main) {
                     when (result.isSuccess) {
                         true -> {
+                            respuesta(true)
                             isLoading.value = false
                             cliente.value = result.getOrThrow()
                         }
                         false -> {
+                            respuesta(false)
                             isLoading.value = false
                             Log.d("REGISTRO", "Error:$result")
                         }
